@@ -70,6 +70,18 @@ UNLOCKED_ACCOUNT = {
     }
 }
 
+def is_client_disconnect(e):
+    """Detect if an exception was caused by client closing/aborting the socket."""
+    if isinstance(e, (ConnectionResetError, ConnectionAbortedError, BrokenPipeError)):
+        return True
+    if isinstance(e, OSError):
+        # 10053: WSAECONNABORTED, 10054: WSAECONNRESET, 32: EPIPE, 104: ECONNRESET
+        if getattr(e, 'winerror', None) in (10053, 10054):
+            return True
+        if getattr(e, 'errno', None) in (10053, 10054, 32, 104):
+            return True
+    return False
+
 def to_proxy_url(url_val, base_url):
     url_val = url_val.strip()
     if not url_val or url_val.startswith('data:') or url_val.startswith('blob:') or url_val.startswith('javascript:') or url_val.startswith('#') or url_val.startswith('/__daw/'):
@@ -121,6 +133,15 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         # Clean logging without clutter
         pass
 
+    def handle_one_request(self):
+        try:
+            super().handle_one_request()
+        except Exception as e:
+            if is_client_disconnect(e):
+                self.close_connection = True
+                return
+            raise
+
     def end_headers(self):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         self.send_header('Pragma', 'no-cache')
@@ -135,10 +156,23 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_OPTIONS(self):
-        self.send_response(200)
-        self.end_headers()
+        try:
+            self.send_response(200)
+            self.end_headers()
+        except Exception as e:
+            if is_client_disconnect(e):
+                return
+            raise
 
     def do_POST(self):
+        try:
+            self._handle_post()
+        except Exception as e:
+            if is_client_disconnect(e):
+                return
+            raise
+
+    def _handle_post(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
@@ -178,6 +212,14 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(b'{"ok": true}')
 
     def do_GET(self):
+        try:
+            self._handle_get()
+        except Exception as e:
+            if is_client_disconnect(e):
+                return
+            raise
+
+    def _handle_get(self):
         global CURRENT_PROXIED_HOST, CURRENT_PROXIED_PROTO
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
@@ -213,6 +255,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                         'User-Agent': USER_AGENT,
                         'Accept': '*/*',
                         'Accept-Language': 'en-US,en;q=0.9,tr;q=0.8',
+                        'Accept-Encoding': 'identity',
                     }
                 )
                 with urllib.request.urlopen(req, timeout=12) as resp:
@@ -220,7 +263,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     if resp.headers.get('Content-Encoding') == 'gzip':
                         try:
                             raw_data = gzip.decompress(raw_data)
-                        except:
+                        except Exception:
                             pass
 
                     content_type = resp.headers.get('Content-Type', 'application/octet-stream')
@@ -236,11 +279,14 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
                     self.send_response(200)
                     self.send_header('Content-Type', content_type)
+                    self.send_header('Content-Length', str(len(raw_data)))
                     self.send_header('x-final-url', final_url)
                     self.end_headers()
                     self.wfile.write(raw_data)
                     return
-            except Exception:
+            except Exception as e:
+                if is_client_disconnect(e):
+                    return
                 self._serve_fallback_asset(path)
                 return
 
@@ -269,6 +315,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                         'User-Agent': USER_AGENT,
                         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                         'Accept-Language': 'en-US,en;q=0.9,tr;q=0.8',
+                        'Accept-Encoding': 'identity',
                     }
                 )
                 with urllib.request.urlopen(req, timeout=12) as resp:
@@ -276,21 +323,27 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     if resp.headers.get('Content-Encoding') == 'gzip':
                         try:
                             raw_data = gzip.decompress(raw_data)
-                        except:
+                        except Exception:
                             pass
                     
                     final_url = resp.geturl()
                     self.send_response(200)
                     self.send_header('Content-Type', 'text/html; charset=utf-8')
+                    self.send_header('Content-Length', str(len(raw_data)))
                     self.send_header('x-final-url', final_url)
                     self.end_headers()
                     self.wfile.write(raw_data)
                     return
             except Exception as e:
-                self.send_response(500)
-                self.send_header('Content-Type', 'application/json')
-                self.end_headers()
-                self.wfile.write(json.dumps({'error': f'Failed to fetch site: {str(e)}'}).encode('utf-8'))
+                if is_client_disconnect(e):
+                    return
+                try:
+                    self.send_response(500)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({'error': f'Failed to fetch site: {str(e)}'}).encode('utf-8'))
+                except Exception:
+                    pass
                 return
 
         # 1. Handle Root Path (index.html)
@@ -306,7 +359,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(content)
                 return
 
-        # 2. Handle Local Files on Disk directly
+        # 2. Handle Local Files on Disk directly with HTTP Range Support (for video/audio/large assets)
         local_rel_path = path.lstrip('/')
         local_full_path = os.path.join(DIRECTORY, local_rel_path)
 
@@ -317,16 +370,54 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     ctype = 'application/json'
                 elif 'bin.gz' in local_full_path:
                     ctype = 'application/octet-stream'
+
+            file_size = os.path.getsize(local_full_path)
+            range_header = self.headers.get('Range')
+
             try:
-                with open(local_full_path, 'rb') as f:
-                    content = f.read()
-                self.send_response(200)
-                self.send_header('Content-Type', ctype)
-                self.send_header('Content-Length', str(len(content)))
-                self.end_headers()
-                self.wfile.write(content)
-                return
-            except Exception:
+                if range_header and range_header.startswith('bytes='):
+                    # HTTP 206 Partial Content for streaming media
+                    ranges = range_header[6:].split('-')
+                    start = int(ranges[0]) if ranges[0] else 0
+                    end = int(ranges[1]) if len(ranges) > 1 and ranges[1] else file_size - 1
+                    start = max(0, min(start, file_size - 1))
+                    end = max(start, min(end, file_size - 1))
+                    length = end - start + 1
+
+                    self.send_response(206)
+                    self.send_header('Content-Type', ctype)
+                    self.send_header('Content-Range', f'bytes {start}-{end}/{file_size}')
+                    self.send_header('Content-Length', str(length))
+                    self.send_header('Accept-Ranges', 'bytes')
+                    self.end_headers()
+
+                    with open(local_full_path, 'rb') as f:
+                        f.seek(start)
+                        remaining = length
+                        while remaining > 0:
+                            chunk = f.read(min(remaining, 65536))
+                            if not chunk:
+                                break
+                            self.wfile.write(chunk)
+                            remaining -= len(chunk)
+                    return
+                else:
+                    self.send_response(200)
+                    self.send_header('Content-Type', ctype)
+                    self.send_header('Content-Length', str(file_size))
+                    self.send_header('Accept-Ranges', 'bytes')
+                    self.end_headers()
+
+                    with open(local_full_path, 'rb') as f:
+                        while True:
+                            chunk = f.read(65536)
+                            if not chunk:
+                                break
+                            self.wfile.write(chunk)
+                    return
+            except Exception as e:
+                if is_client_disconnect(e):
+                    return
                 pass
 
         # 3. If file is not found locally, try to proxy from Referer or last proxied host
@@ -351,6 +442,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     headers={
                         'User-Agent': USER_AGENT,
                         'Accept': '*/*',
+                        'Accept-Encoding': 'identity',
                     }
                 )
                 with urllib.request.urlopen(req, timeout=8) as resp:
@@ -362,60 +454,74 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     self.end_headers()
                     self.wfile.write(data)
                     return
-            except Exception:
+            except Exception as e:
+                if is_client_disconnect(e):
+                    return
                 pass
 
         # 4. If not found locally or remotely, serve fallback asset
         self._serve_fallback_asset(path)
 
     def _serve_fallback_asset(self, path):
-        path_lower = path.lower()
-        if path_lower.endswith('.svg'):
-            self.send_response(200)
-            self.send_header('Content-Type', 'image/svg+xml')
-            self.send_header('Content-Length', str(len(EMPTY_SVG_1X1)))
-            self.end_headers()
-            self.wfile.write(EMPTY_SVG_1X1)
-        elif any(path_lower.endswith(ext) for ext in ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.ico', '.avif']):
-            self.send_response(200)
-            self.send_header('Content-Type', 'image/png')
-            self.send_header('Content-Length', str(len(EMPTY_PNG_1X1)))
-            self.end_headers()
-            self.wfile.write(EMPTY_PNG_1X1)
-        elif path_lower.endswith('.js'):
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/javascript')
-            self.send_header('Content-Length', '11')
-            self.end_headers()
-            self.wfile.write(b'/* empty */')
-        elif path_lower.endswith('.css'):
-            self.send_response(200)
-            self.send_header('Content-Type', 'text/css')
-            self.send_header('Content-Length', '11')
-            self.end_headers()
-            self.wfile.write(b'/* empty */')
-        elif any(path_lower.endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.otf']):
-            self.send_response(200)
-            self.send_header('Content-Type', 'font/woff2')
-            self.send_header('Content-Length', '0')
-            self.end_headers()
-            self.wfile.write(b'')
-        elif path_lower.startswith('/api/'):
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.send_header('Content-Length', '11')
-            self.end_headers()
-            self.wfile.write(b'{"ok":true}')
-        else:
-            self.send_response(200)
-            self.send_header('Content-Type', 'text/plain')
-            self.send_header('Content-Length', '0')
-            self.end_headers()
-            self.wfile.write(b'')
+        try:
+            path_lower = path.lower()
+            if path_lower.endswith('.svg'):
+                self.send_response(200)
+                self.send_header('Content-Type', 'image/svg+xml')
+                self.send_header('Content-Length', str(len(EMPTY_SVG_1X1)))
+                self.end_headers()
+                self.wfile.write(EMPTY_SVG_1X1)
+            elif any(path_lower.endswith(ext) for ext in ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.ico', '.avif']):
+                self.send_response(200)
+                self.send_header('Content-Type', 'image/png')
+                self.send_header('Content-Length', str(len(EMPTY_PNG_1X1)))
+                self.end_headers()
+                self.wfile.write(EMPTY_PNG_1X1)
+            elif path_lower.endswith('.js'):
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/javascript')
+                self.send_header('Content-Length', '11')
+                self.end_headers()
+                self.wfile.write(b'/* empty */')
+            elif path_lower.endswith('.css'):
+                self.send_response(200)
+                self.send_header('Content-Type', 'text/css')
+                self.send_header('Content-Length', '11')
+                self.end_headers()
+                self.wfile.write(b'/* empty */')
+            elif any(path_lower.endswith(ext) for ext in ['.woff', '.woff2', '.ttf', '.otf']):
+                self.send_response(200)
+                self.send_header('Content-Type', 'font/woff2')
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                self.wfile.write(b'')
+            elif path_lower.startswith('/api/'):
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Content-Length', '11')
+                self.end_headers()
+                self.wfile.write(b'{"ok":true}')
+            else:
+                self.send_response(200)
+                self.send_header('Content-Type', 'text/plain')
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                self.wfile.write(b'')
+        except Exception as e:
+            if is_client_disconnect(e):
+                return
+            pass
 
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
     allow_reuse_address = True
+
+    def handle_error(self, request, client_address):
+        """Silently ignore normal client disconnection/abort errors."""
+        exc_type, exc_val, exc_tb = sys.exc_info()
+        if is_client_disconnect(exc_val) or (exc_type and issubclass(exc_type, (ConnectionResetError, ConnectionAbortedError, BrokenPipeError))):
+            return
+        super().handle_error(request, client_address)
 
 def open_browser_delayed(port):
     time.sleep(0.6)
