@@ -1,0 +1,3327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Boomfy</title>
+    <meta name="description" content="Type any website's address and fight your way through it: its text, images and boxes become a destructible pixel-art level. Play solo or with friends. Free, in your browser." />
+    <meta name="theme-color" content="#272727" />
+        <link rel="canonical" href="http://localhost:3001/" />
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/_app/favicon-jqv269pb.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/_app/favicon-16x16-4phv4t4f.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/_app/favicon-32x32-ehn2ggpe.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/_app/favicon-n9zy1r36.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/_app/apple-touch-icon-b67mbd2s.png" />
+        <link rel="manifest" href="/assets/site/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Boomfy" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Boomfy" />
+    <meta property="og:title" content="Boomfy" />
+    <meta property="og:description" content="Type an address, break everything. Any website becomes a destructible pixel-art level, solo or with friends." />
+    <meta property="og:url" content="http://localhost:3001/" />
+    <meta property="og:image" content="http://localhost:3001/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A pixel-art stickman shredding the title of the Wikipedia article &quot;Stick figure&quot; with an SMG." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Boomfy" />
+    <meta name="twitter:creator" content="@Boomfy" />
+    <meta name="twitter:title" content="Boomfy" />
+    <meta name="twitter:description" content="Type an address, break everything. Any website becomes a destructible pixel-art level, solo or with friends." />
+    <meta name="twitter:image" content="http://localhost:3001/og.png" />
+    <meta name="twitter:image:alt" content="A pixel-art stickman shredding the title of the Wikipedia article &quot;Stick figure&quot; with an SMG." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "@id": "http://localhost:3001/#game",
+        "name": "Boomfy",
+        "url": "http://localhost:3001/",
+        "image": "http://localhost:3001/og.png",
+        "description": "Type any website's address and fight your way through it: its text, images and boxes become a destructible pixel-art level. Play solo or with friends.",
+        "genre": ["Action", "Shooter", "Platformer"],
+        "gamePlatform": "Web browser",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "playMode": ["SinglePlayer", "MultiPlayer"],
+        "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 6 },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "datePublished": "2026-09-28",
+        "author": { "@type": "Person", "@id": "http://localhost:3001/#author", "name": "Boomfy", "url": "https://x.com/HugoDuprez" },
+        "publisher": { "@type": "Organization", "@id": "http://localhost:3001/#publisher", "name": "Boomfy", "url": "#" },
+        "sameAs": ["#/games/destroy-any-website", "https://x.com/HugoDuprez/status/2104579137575018827", "https://news.ycombinator.com/item?id=49880601"],
+        "subjectOf": { "@type": "AboutPage", "@id": "http://localhost:3001/about", "url": "http://localhost:3001/about" }
+      }
+    </script>
+    <style>
+      
+      @font-face {
+        font-family: "chevyray";
+        src: url("/assets/fonts/chevyray.ttf");
+        font-display: block;
+      }
+      @font-face {
+        font-family: "chevyray-oeuf";
+        src: url("/assets/fonts/chevyray-oeuf.ttf");
+        font-display: block;
+      }
+      :root {
+        --white: #f8fafc;
+        --light-gray: #a78bfa;
+        --medium-gray: #241648;
+        --black: #150d2e;
+        --pure-black: #0a0618;
+        --blue: #00f0ff;
+        --cyan-neon: #00f0ff;
+        --purple-neon: #a855f7;
+        --pink-neon: #ff007f;
+        --orange: #ff5500; 
+        --orange-light: #ffaa00; 
+        --orange-error: #ff2255; 
+        --track-height: 8px; 
+        --thumb-height: 24px;
+        --thumb-width: 16px;
+        --shadow-button: 0px 2px 0px 0px #4d2d88 inset, 0px -2px 0px 0px #4d2d88 inset, -2px 0px 0px 0px #4d2d88 inset,
+          2px 0px 0px 0px #4d2d88 inset, 0px 2px 0px 0px #070412, 2px 0px 0px 0px #070412, -2px 0px 0px 0px #070412,
+          0px -2px 0px 0px #070412, 0px 4px 0px 0px rgba(7, 4, 18, 0.85);
+        --shadow-window-body: 4px 8px 0px 0px rgba(0, 0, 0, 0.55), -2px 0px 0px 0px #070412, 2px 0px 0px 0px #070412,
+          0px -2px 0px 0px #070412, 0px 2px 0px 0px #070412, 0px 4px 0px 0px #070412, 0px -2px 0px 0px #432475 inset,
+          0px 2px 0px 0px #432475 inset, -2px 0px 0px 0px #432475 inset, 2px 0px 0px 0px #432475 inset;
+        --shadow-window-head: 0px 2px 0px 0px #5c329c inset, -2px 0px 0px 0px #5c329c inset, 2px 0px 0px 0px #5c329c inset;
+        --shadow-input: -2px 0px 0px 0px #070412, 2px 0px 0px 0px #070412, 0px -2px 0px 0px #070412, 0px 2px 0px 0px #070412;
+        --shadow-inner-pannel: -2px 0px 0px 0px #04020a, 2px 0px 0px 0px #04020a, 0px -2px 0px 0px #04020a, 0px 2px 0px 0px #04020a,
+          0px -2px 0px 0px #1e103d inset, 0px 2px 0px 0px #1e103d inset, -2px 0px 0px 0px #1e103d inset, 2px 0px 0px 0px #1e103d inset;
+        --shadow-blue: -2px 0px 0px 0px #070412, 2px 0px 0px 0px #070412, 0px -2px 0px 0px #070412, 0px 2px 0px 0px #070412,
+          -2px 0px 0px 0px #00f0ff inset, 2px 0px 0px 0px #00f0ff inset, 0px -2px 0px 0px #00f0ff inset, 0px 2px 0px 0px #00f0ff inset;
+      }
+      
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+      }
+      img,
+      svg,
+      canvas {
+        display: block;
+      }
+      button,
+      input {
+        font: inherit;
+        color: inherit;
+        background: transparent;
+        letter-spacing: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: chevyray, ui-monospace, monospace;
+        font-size: 16px;
+        line-height: 20.48px;
+        color: var(--white);
+        background: radial-gradient(circle at 50% 30%, #1a0e36 0%, #0c071a 70%, #05020c 100%);
+        overflow: hidden;
+        user-select: none;
+      }
+      
+      p {
+        padding-top: 4px;
+      }
+
+      
+      .app {
+        height: 100%;
+        display: flex;
+      }
+      .window {
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        background: #140d2b;
+        box-shadow: var(--shadow-window-body);
+      }
+      .window-head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 6px 8px;
+        background: linear-gradient(90deg, #251648 0%, #351d66 100%);
+        box-shadow: var(--shadow-window-head);
+      }
+      .window-body {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        padding: 6px;
+      }
+      .head-left,
+      .head-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+      .head-title {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-weight: normal;
+        font-size: 16px;
+      }
+      .head-title .name {
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 24px;
+        line-height: 1;
+        
+        position: relative;
+        top: 2px;
+      }
+      .head-title .by {
+        color: #a0a0a0;
+      }
+      .head-title a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+      }
+      .head-title a.name {
+        text-decoration: none; 
+      }
+      .head-title a:hover {
+        color: #ffffff;
+      }
+
+      
+      .btn {
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 14px;
+        background: linear-gradient(180deg, #2a1650 0%, #1a0d33 100%);
+        border: 1px solid #4a2785;
+        border-radius: 4px;
+        box-shadow: 0 2px 0 #070412, inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        color: var(--white);
+        font-family: inherit;
+        font-size: 15px;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.12s ease;
+      }
+      .btn p {
+        padding-top: 0;
+        margin: 0;
+      }
+      .btn:hover {
+        background: linear-gradient(180deg, #3d2075 0%, #25124a 100%);
+        border-color: #a855f7;
+        box-shadow: 0 2px 0 #070412;
+        color: #ffffff;
+      }
+      .btn:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 0 #070412, inset 0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+      .btn:focus {
+        outline: none;
+      }
+      .btn > span {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .btn img {
+        width: 20px;
+        height: 20px;
+        image-rendering: pixelated;
+      }
+      a.btn {
+        color: inherit;
+        text-decoration: none;
+      }
+      .btn img.discord {
+        width: 20px;
+        height: 15px; 
+      }
+      
+      #btn-discord {
+        align-self: stretch;
+      }
+      
+      .tag {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 8px;
+        font-size: 14px;
+        box-shadow: var(--shadow-input);
+      }
+      .tag:hover {
+        background: var(--medium-gray);
+      }
+      .tag > span {
+        margin-top: 3px;
+      }
+
+      
+      .stage {
+        position: relative;
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      #game {
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        image-rendering: pixelated;
+      }
+      
+      .stage.playing:not(.waiting),
+      .stage.playing:not(.waiting) * {
+        cursor: none !important;
+      }
+      #ui {
+        position: absolute;
+        inset: 2px;
+        pointer-events: none;
+      }
+      
+      .title-video {
+        position: absolute;
+        inset: 2px;
+        pointer-events: none;
+        opacity: 0;
+      }
+      .title-video.on {
+        opacity: 1;
+      }
+      .title-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .title-video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(39, 39, 39, 0.4);
+      }
+      .screen {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.15s ease;
+      }
+      .screen.hidden,
+      .hidden {
+        opacity: 0;
+        pointer-events: none !important;
+      }
+      .screen.hidden * {
+        pointer-events: none !important;
+      }
+      
+      .more-link {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+      }
+      
+      .join-link {
+        margin-left: 0;
+        gap: 6px;
+        align-items: baseline; 
+      }
+      .join-link img.discord {
+        width: 18px;
+        height: 13.5px; 
+        position: relative;
+        top: 3px; 
+      }
+      body.touch #title .keys-row {
+        justify-content: space-between;
+      }
+      .more-link p {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+      }
+      
+      .made-on {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .made-on a {
+        color: var(--white);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+      }
+      .art-strip {
+        display: flex;
+        align-items: flex-start; 
+        justify-content: space-evenly;
+      }
+      .art-strip canvas {
+        image-rendering: pixelated;
+      }
+      
+      .pack-promo {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        container-type: inline-size;
+      }
+      .pack-promo-body {
+        align-self: flex-start; 
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .pack-promo-buy:empty {
+        display: none;
+      }
+      .pack-promo-buy .btn {
+        width: 100%;
+        max-width: none;
+        padding: 6px 12px;
+      }
+      
+      #pause .gray,
+      #complete .gray,
+      #vs-over .gray {
+        color: #a0a0a0;
+      }
+      .menu-card [hidden] {
+        display: none !important;
+      }
+      .more-link:hover {
+        color: #ffffff;
+      }
+      .overlay {
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      
+      .sfwin {
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        background: var(--black);
+        box-shadow: var(--shadow-window-body);
+      }
+      .sfwin > .window-head {
+        gap: 16px;
+      }
+      .sfwin > .window-head button img {
+        width: 20px;
+        height: 20px;
+      }
+      .sfwin-body {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+      }
+      .gray {
+        color: var(--light-gray);
+      }
+      .muted {
+        color: #a0a0a0;
+      }
+      
+      .legal {
+        font-size: 12px;
+        color: #a0a0a0;
+      }
+      .legal a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .legal a:hover {
+        color: #ffffff;
+      }
+      
+      .home-legal {
+        margin-top: 16px;
+        text-align: center;
+        pointer-events: auto; 
+      }
+      body:not(.touch) .home-legal {
+        color: #8b7cb8;
+      }
+      body:not(.touch) .home-legal a:hover {
+        color: #00f0ff;
+      }
+
+      
+      /* Title Widescreen Dashboard Layout */
+      #title {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 16px 24px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        box-sizing: border-box;
+      }
+      .title-dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 16px;
+        width: 100%;
+        max-width: 1280px;
+      }
+      .title-dashboard > .arenas-card {
+        flex: 1 1 300px;
+        max-width: 340px;
+        min-width: 260px;
+        display: flex;
+        flex-direction: column;
+      }
+      .title-dashboard > .title-card {
+        flex: 2 1 480px;
+        max-width: 560px;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+      .title-dashboard > .controls-card {
+        flex: 1 1 300px;
+        max-width: 340px;
+        min-width: 260px;
+        display: flex;
+        flex-direction: column;
+      }
+      .title-dashboard .sfwin-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 16px;
+      }
+      .title-dashboard > .title-card > .sfwin-body {
+        justify-content: center;
+        align-items: stretch;
+        gap: 16px;
+        padding: 24px 20px;
+      }
+      .brand-hero {
+        text-align: center;
+        margin-bottom: 4px;
+      }
+      .brand-hero .hero-title {
+        font-size: 56px;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .hero-subtitle {
+        font-size: 13px;
+        color: #7dd3fc;
+        line-height: 1.4;
+      }
+      .center-hints {
+        display: flex;
+        justify-content: center;
+        margin-top: 4px;
+      }
+      .hint-pill {
+        font-size: 11px;
+        color: #8b7cb8;
+        text-align: center;
+      }
+      .arena-tip {
+        margin-top: auto;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .arena-tip p {
+        font-size: 11px;
+        color: #8b7cb8;
+        text-align: center;
+      }
+      .controls-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .ctrl-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 10px;
+        background: #0d061e;
+        border: 1px solid #2e1554;
+        box-shadow: 0 1px 0 #080414;
+      }
+      .ctrl-keys {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .ctrl-keys kbd {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 5px;
+        background: #231244;
+        border: 1px solid #7c3aed;
+        color: #00f0ff;
+        font-family: inherit;
+        font-size: 11px;
+        font-weight: bold;
+        box-shadow: 0 2px 0 #0e051f;
+      }
+      .ctrl-keys img {
+        height: 16px;
+        width: auto;
+        filter: invert(1) brightness(1.8) drop-shadow(0 0 2px #00f0ff);
+      }
+      .ctrl-desc {
+        font-size: 12px;
+        color: #e2e8f0;
+      }
+      .arsenal-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: auto;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .arsenal-badge {
+        font-size: 10px;
+        color: #a78bfa;
+        background: #190e38;
+        border: 1px solid #43247c;
+        padding: 2px 6px;
+        letter-spacing: 0.5px;
+      }
+      #title > .rank-card {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0;
+      }
+      .featured-card {
+        width: 280px;
+      }
+      .featured-card[hidden] {
+        display: none;
+      }
+      .featured-card .window-head p {
+        overflow-wrap: anywhere; 
+      }
+      .featured-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .hero-title {
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-weight: normal;
+        font-size: 50px;
+        line-height: 1.1;
+      }
+      .boomfy-glow {
+        background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 35%, #0284c7 70%, #1d4ed8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2px;
+      }
+      .section-label {
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #c4b5fd;
+      }
+      .quick-hint {
+        font-size: 11px;
+        color: #8b7cb8;
+      }
+      .quick-maps-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+      @media (max-width: 1024px) {
+        .title-dashboard {
+          flex-direction: column;
+          align-items: center;
+        }
+        .title-dashboard > .arenas-card,
+        .title-dashboard > .title-card,
+        .title-dashboard > .controls-card {
+          max-width: 640px;
+          width: 100%;
+        }
+      }
+      .quick-maps-section {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+        margin-top: 2px;
+      }
+      .quick-maps-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .quick-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: #20133d;
+        color: #e2e8f0;
+        border: 1px solid #4a287c;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        box-shadow: 0 2px 0 #080414;
+      }
+      .quick-chip:hover {
+        background: #361b68;
+        color: #00f0ff;
+        border-color: #00f0ff;
+        box-shadow: 0 2px 0 #080414;
+        transform: translateY(-1px);
+      }
+      .quick-chip:active {
+        background: #130a26;
+        border-color: #d946ef;
+        transform: translateY(1px);
+      }
+      .modes-section {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+        margin-top: 2px;
+      }
+      .modes-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .modes-row .btn {
+        flex: 1;
+        min-width: 140px;
+      }
+      .modes-row #mp-open {
+        background: linear-gradient(180deg, #32165c 0%, #1e0d38 100%);
+        border-color: #8b5cf6;
+      }
+      .modes-row #mp-open:hover {
+        background: linear-gradient(180deg, #4c228a 0%, #2e1457 100%);
+        box-shadow: 0 3px 0 #080414;
+        border-color: #c084fc;
+      }
+      .modes-row #btn-random-map {
+        background: linear-gradient(180deg, #0e3052 0%, #081d33 100%);
+        border-color: #0284c7;
+      }
+      .modes-row #btn-random-map:hover {
+        background: linear-gradient(180deg, #164878 0%, #0d2c4d 100%);
+        box-shadow: 0 3px 0 #080414;
+        border-color: #38bdf8;
+      }
+      .btn-destroy {
+        min-width: 110px;
+        background: linear-gradient(180deg, #ff4500 0%, #b81d00 100%) !important;
+        border-color: #ff8833 !important;
+        box-shadow: 0 3px 0 #080414 !important;
+        color: #ffffff !important;
+      }
+      .btn-destroy:hover {
+        background: linear-gradient(180deg, #ff6600 0%, #d92400 100%) !important;
+        box-shadow: 0 3px 0 #080414 !important;
+        border-color: #ffa055 !important;
+      }
+      .url-row {
+        display: flex;
+        gap: 8px;
+      }
+      
+      .input-wrap .proto.label {
+        margin-right: 8px;
+      }
+      .input-wrap {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 5px 10px 7px;
+        background: #090514;
+        border: 1px solid #3d226a;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+        cursor: text;
+        transition: all 0.15s ease;
+      }
+      .input-wrap:focus-within {
+        border-color: #00f0ff;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+      }
+      .input-wrap .proto {
+        color: #00f0ff;
+        font-weight: bold;
+        padding-top: 4px;
+      }
+      .input-wrap input {
+        flex: 1;
+        min-width: 0;
+        outline: none;
+        color: #ffffff;
+        padding-top: 4px;
+      }
+      .input-wrap input::placeholder {
+        color: #7c689f;
+      }
+      
+      .picks {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .picks.col {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .picks.col > p {
+        color: #a0a0a0;
+      }
+      .picks.col > .url-row {
+        align-self: stretch;
+      }
+      .pick-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+      .install-row[hidden] {
+        display: none !important;
+      }
+      
+      body.embed .xp-strip,
+      body.embed .pack-promo,
+      body.embed .install-row {
+        display: none !important;
+      }
+      
+      body.embed #embed {
+        justify-content: center;
+        padding: 0;
+      }
+      
+      #embed .title-card {
+        width: min(480px, calc(100% - 32px));
+      }
+      body.embed #embed .title-card {
+        width: min(400px, calc(100% - 32px));
+        margin: auto 0 12vh;
+      }
+      
+      body.landing:not(.ready) #title {
+        display: none;
+      }
+      body.landing:not(.ready) #embed {
+        opacity: 1;
+      }
+      body.landing:not(.ready) .title-video {
+        opacity: 1;
+      }
+      
+      body.landing .title-video {
+        background: url("/assets/video/title.jpg") center / cover;
+      }
+      #embed .hero-title em {
+        font-style: italic;
+        color: var(--orange);
+      }
+      #embed-form {
+        flex-direction: column;
+      }
+      .picks > p {
+        color: #a0a0a0; 
+      }
+      .err {
+        color: var(--orange-error);
+      }
+      
+      .err:empty {
+        display: none;
+      }
+      #title .err {
+        display: block;
+        min-height: 24px;
+      }
+      .keys-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        color: #c4b5fd;
+      }
+      .keys-row > span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .keys-row img {
+        height: 17px;
+        width: auto;
+        image-rendering: pixelated;
+      }
+      kbd {
+        font: inherit;
+        font-size: 14px;
+        color: #00f0ff;
+        background: #241444;
+        padding: 3px 6px 1px;
+        border: 1px solid #4f2b8f;
+        box-shadow: 0 2px 0 #070412;
+      }
+
+      
+      .load-card {
+        width: min(420px, calc(100% - 32px));
+      }
+      .load-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .load-bar {
+        position: relative;
+        display: flex;
+        height: 12px;
+        width: 100%;
+        background: #09120c;
+        border: 1px solid #14532d;
+        border-radius: 3px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+      }
+      .load-bar i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 12px;
+        width: 0;
+        background: linear-gradient(90deg, #059669 0%, #10b981 50%, #4ade80 100%);
+        transition: width 0.25s linear;
+        border-radius: 2px;
+      }
+
+      
+      #hud {
+        position: absolute;
+        inset: 0;
+        transition: opacity 0.15s ease;
+      }
+      
+      .hud-progress {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: 256px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        background: #140d2b;
+        border: 1px solid #3b1d6e;
+        border-radius: 4px;
+        box-shadow: var(--shadow-window-body);
+      }
+      .hud-progress .meter {
+        flex: 1;
+      }
+      .hud-progress p {
+        min-width: 40px; 
+        text-align: right;
+        color: #4ade80;
+        font-weight: bold;
+      }
+      .meter-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+      .meter {
+        position: relative;
+        display: flex;
+        height: 12px;
+        width: 100%;
+        background: #09120c;
+        border: 1px solid #14532d;
+        border-radius: 3px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+      }
+      .meter i,
+      .meter b {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 12px;
+        width: 0;
+        border-radius: 2px;
+      }
+      .meter b {
+        background: #86efac;
+        opacity: 0.85;
+      }
+      .meter i {
+        background: linear-gradient(90deg, #059669 0%, #10b981 50%, #4ade80 100%);
+      }
+      .hud-weapons {
+        position: absolute;
+        left: 50%;
+        bottom: 12px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        padding: 8px;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .slot {
+        position: relative;
+        width: 76px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--black);
+        box-shadow: var(--shadow-button);
+      }
+      .slot.on {
+        background: var(--medium-gray);
+      }
+      .slot canvas {
+        image-rendering: pixelated;
+      }
+      .slot .key {
+        position: absolute;
+        left: 6px;
+        top: 3px;
+        font-size: 14px;
+        color: var(--light-gray);
+      }
+      .slot.on .key {
+        color: var(--white);
+      }
+      .slot.alt {
+        width: 60px;
+      }
+      .wname {
+        position: absolute;
+        left: 50%;
+        bottom: 92px;
+        transform: translateX(-50%);
+        padding: 6px 8px;
+        background: var(--black);
+        box-shadow: var(--shadow-input);
+        white-space: nowrap;
+        transition: opacity 0.15s ease;
+      }
+      .hud-hint {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        left: auto;
+        bottom: auto;
+        max-width: 380px;
+        transition: opacity 0.15s ease;
+      }
+      
+      .slot .charge,
+      .tbtn-alt .charge {
+        position: absolute;
+        left: 6px;
+        right: 6px;
+        bottom: 4px;
+        height: 3px;
+        background: var(--black);
+        box-shadow: var(--shadow-input);
+        opacity: 0;
+        transition: opacity 0.15s ease;
+      }
+      .slot .charge i,
+      .tbtn-alt .charge i {
+        display: block;
+        height: 100%;
+        background: var(--white);
+      }
+      .slot .charge.on,
+      .tbtn-alt .charge.on {
+        opacity: 1;
+      }
+      .hud-hint .sfwin-body {
+        padding: 10px 12px;
+        gap: 8px;
+      }
+      
+      .menu-card {
+        width: min(640px, calc(100% - 32px));
+        max-width: 640px;
+      }
+      .menu-card .row {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        margin-top: 2px;
+      }
+      .menu-card .row .btn {
+        flex: 1;
+        padding: 10px 16px;
+        min-height: 42px;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+      .btn[data-act="keep"],
+      .btn[data-act="resume"],
+      .btn[data-act="rematch"] {
+        background: linear-gradient(180deg, #059669 0%, #047857 100%);
+        border-color: #10b981;
+        color: #ffffff;
+      }
+      .btn[data-act="keep"]:hover,
+      .btn[data-act="resume"]:hover,
+      .btn[data-act="rematch"]:hover {
+        background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+        box-shadow: 0 2px 0 #070412;
+        border-color: #6ee7b7;
+      }
+      .btn[data-act="new"],
+      .btn[data-act="restart"],
+      .btn[data-act="vs-new"] {
+        background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+        border-color: #f59e0b;
+        color: #ffffff;
+      }
+      .btn[data-act="new"]:hover,
+      .btn[data-act="restart"]:hover,
+      .btn[data-act="vs-new"]:hover {
+        background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+        box-shadow: 0 2px 0 #070412;
+        border-color: #fcd34d;
+      }
+      .btn[data-act="online"] {
+        background: linear-gradient(180deg, #7c3aed 0%, #5b21b6 100%);
+        border-color: #8b5cf6;
+        color: #ffffff;
+      }
+      .btn[data-act="online"]:hover {
+        background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+        box-shadow: 0 2px 0 #070412;
+        border-color: #c4b5fd;
+      }
+      .btn[data-act="leave"] {
+        background: linear-gradient(180deg, #be123c 0%, #881337 100%);
+        border-color: #f43f5e;
+        color: #ffffff;
+      }
+      .btn[data-act="leave"]:hover {
+        background: linear-gradient(180deg, #f43f5e 0%, #be123c 100%);
+        box-shadow: 0 2px 0 #070412;
+        border-color: #fca5a5;
+      }
+      .menu-card .gray,
+      #pause .gray,
+      #complete .gray,
+      #vs-over .gray,
+      #leave-q .gray {
+        color: #c4b5fd;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+        display: block;
+      }
+      
+      .slot.off {
+        display: none;
+      }
+      .inner {
+        padding: 10px 12px;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .keys {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 8px 18px;
+        color: #cbd5e1;
+        padding: 14px 16px;
+        background: #090514;
+        border: 1px solid #351a66;
+        box-shadow: var(--shadow-inner-pannel);
+        border-radius: 4px;
+      }
+      .keys > p:nth-child(odd) {
+        color: var(--cyan-neon);
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+      .keys > p:nth-child(even) {
+        color: #f1f5f9;
+      }
+      .seg {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .seg .btn {
+        flex: 1 1 0;
+        min-width: 120px;
+        padding: 9px 12px;
+        background: var(--black);
+        border: 1px solid #3b1d6e;
+        box-shadow: var(--shadow-button);
+        text-align: center;
+      }
+      .seg .btn:hover {
+        background: #351d66;
+        border-color: #8b5cf6;
+      }
+      .seg .btn.on {
+        background: linear-gradient(180deg, #3d1c78 0%, #200f40 100%);
+        border-color: var(--cyan-neon);
+        box-shadow: 0 2px 0 #070412;
+        color: var(--cyan-neon);
+      }
+      
+      input[type="range"] {
+        appearance: none;
+        background: transparent;
+        width: 100%;
+        cursor: pointer;
+        height: 28px;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        background: #190f33;
+        height: 10px;
+        border-radius: 5px;
+        border: 1px solid #3b1d6e;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+      }
+      input[type="range"]::-moz-range-track {
+        background: #190f33;
+        height: 10px;
+        border-radius: 5px;
+        border: 1px solid #3b1d6e;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        background: linear-gradient(180deg, #a855f7 0%, #6366f1 100%);
+        border: 2px solid #00f0ff;
+        width: 22px;
+        height: 26px;
+        margin-top: -8px;
+        border-radius: 3px;
+        box-shadow: 0 2px 0 #070412;
+        cursor: pointer;
+      }
+      input[type="range"]::-moz-range-thumb {
+        appearance: none;
+        background: linear-gradient(180deg, #a855f7 0%, #6366f1 100%);
+        border: 2px solid #00f0ff;
+        width: 22px;
+        height: 26px;
+        border-radius: 3px;
+        box-shadow: 0 2px 0 #070412;
+        cursor: pointer;
+      }
+      input[type="range"]:focus {
+        outline: none;
+      }
+      .sfx-vol {
+        display: block;
+        height: 28px; 
+        margin-top: 6px;
+      }
+      
+      #vs-winner {
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 32px;
+        line-height: 1.2;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 6px 16px;
+        color: #a0a0a0;
+      }
+      .stats .v {
+        color: var(--white);
+        text-align: right;
+      }
+      
+      .xp-strip {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .xp-track {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .xp-strip {
+        container-type: inline-size;
+      }
+      
+      @container (max-width: 430px) {
+        .xp-track {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: "now next" "mid mid";
+          gap: 8px 12px;
+        }
+        .xp-end {
+          grid-area: now;
+          justify-self: start;
+        }
+        .xp-end.xp-next-end {
+          grid-area: next;
+          justify-self: end;
+        }
+        .xp-mid {
+          grid-area: mid;
+        }
+      }
+      .xp-end {
+        flex: none;
+        width: 104px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+      }
+      .xp-end .insignia {
+        width: 64px;
+        height: 64px;
+      }
+      .xp-end p {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .xp-next-end.top .insignia {
+        visibility: hidden; 
+      }
+      .xp-mid {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .xp-say {
+        min-height: 18px;
+        line-height: 18px;
+        text-align: center;
+        color: #a0a0a0;
+      }
+      .xp-say span {
+        color: var(--orange-light);
+      }
+      
+      .xp-bar {
+        position: relative;
+        align-self: stretch;
+        height: 14px;
+        background: #09120c;
+        border: 1px solid #14532d;
+        border-radius: 3px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+      }
+      .xp-bar i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: linear-gradient(90deg, #059669 0%, #10b981 40%, #22c55e 75%, #4ade80 100%);
+        border-radius: 2px;
+      }
+      .xp-bar i.xp-gain {
+        background: linear-gradient(90deg, #34d399 0%, #86efac 100%);
+      }
+      
+      .xp-count,
+      #rank-card-xp {
+        font-size: 12px;
+        line-height: 14px;
+      }
+      .xp-note {
+        text-align: center;
+      }
+      .xp-note:empty {
+        display: none;
+      }
+      
+      button.link {
+        background: none;
+        border: 0;
+        padding: 0;
+        font: inherit;
+        color: var(--white);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+        cursor: pointer;
+      }
+      .xp-strip.promoted .xp-now {
+        position: relative;
+        animation: xp-pop 0.45s ease-out;
+      }
+      
+      .xp-strip.promoted .xp-now::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent 42%, rgba(255, 255, 255, 0.42) 42% 58%, transparent 58%) 100% 100% / 300% 300% no-repeat;
+        -webkit-mask: url("/assets/ranks/insignia.png") calc((var(--r, 1) - 1) * 100% / 16) 0 / 1700% 100% no-repeat;
+        mask: url("/assets/ranks/insignia.png") calc((var(--r, 1) - 1) * 100% / 16) 0 / 1700% 100% no-repeat;
+        animation: insignia-shine 3s linear infinite;
+      }
+      @keyframes insignia-shine {
+        22%,
+        to {
+          background-position: 0 0;
+        }
+      }
+      
+      .rank-card {
+        width: min(620px, calc(100% - 32px));
+      }
+      .rank-card > .sfwin-body {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 16px;
+      }
+      #rank-card-insignia {
+        width: 48px;
+        height: 48px;
+      }
+      
+      .insignia {
+        display: block;
+        flex: none;
+        width: 32px;
+        height: 32px;
+        background: url("/assets/ranks/insignia.png") calc((var(--r, 1) - 1) * 100% / 16) 0 / 1700% 100% no-repeat;
+        image-rendering: pixelated;
+      }
+      .rank-card-mid {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .rank-card-top {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        min-height: 1lh; 
+      }
+      .rank-card-top #rank-card-xp {
+        margin-left: auto;
+      }
+      .rank-card .xp-bar {
+        height: 10px;
+      }
+      
+      .rank-card {
+        container-type: inline-size;
+      }
+      @container (max-width: 480px) {
+        .rank-card-mid {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          grid-template-areas: "name xp" "bar signin";
+          align-items: center;
+          gap: 6px 12px;
+        }
+        .rank-card-top {
+          display: contents;
+        }
+        #rank-card-name {
+          grid-area: name;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .rank-card-top #rank-card-xp {
+          grid-area: xp;
+          margin-left: 0;
+          white-space: nowrap;
+        }
+        #rank-card-signin {
+          grid-area: signin;
+          white-space: nowrap;
+        }
+        .rank-card .xp-bar {
+          grid-area: bar;
+          align-self: stretch; 
+          height: auto;
+          min-height: 10px;
+        }
+        .rank-card-mid:not(:has(#rank-card-signin:not([hidden]))) .xp-bar {
+          grid-column: 1 / -1;
+        }
+      }
+      @keyframes xp-pop {
+        0% {
+          transform: scale(0.6);
+        }
+        60% {
+          transform: scale(1.18);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      #ui.versus .sp-only,
+      #ui:not(.versus) .vs-only {
+        display: none !important;
+      }
+      .code-row {
+        display: flex;
+        gap: 8px;
+      }
+      .input-wrap.code {
+        flex: none;
+        width: 132px;
+      }
+      .input-wrap.code input {
+        text-transform: uppercase;
+      }
+      .input-wrap.code input::placeholder {
+        text-transform: none;
+      }
+      
+      
+      #mobile.hidden {
+        display: none; 
+      }
+      .mobile-body {
+        align-items: center;
+        text-align: center;
+      }
+      .mobile-icon {
+        image-rendering: pixelated;
+      }
+      .mobile-body .hero-title {
+        font-size: 32px;
+      }
+      .mobile-hero {
+        width: 100%;
+        max-width: 512px;
+        height: auto;
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .btn.shine {
+        width: 100%;
+        max-width: 512px;
+        padding: 6px 64px;
+        font-family: chevyray-oeuf, chevyray, monospace;
+        background: linear-gradient(110deg, #000, 45%, #cbcbcb, 55%, #000);
+        background-size: 220% 100%;
+        animation: background-shine 2.5s linear infinite;
+      }
+      @keyframes background-shine {
+        from {
+          background-position: -20% 0;
+        }
+        to {
+          background-position: -200% 0;
+        }
+      }
+
+      
+      .mobile .head-title .by,
+      .mobile .head-title a:not(.name),
+      .mobile #btn-share,
+      .mobile #btn-mp {
+        display: none !important; 
+      }
+      @media (max-width: 640px) {
+        .head-title .name {
+          font-size: 18px;
+        }
+        #btn-discord p {
+          display: none;
+        }
+      }
+
+      
+      body:not(.touch) .touch-only,
+      body.touch .kb-only {
+        display: none !important;
+      }
+      body.touch {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+      }
+      body.touch button,
+      body.touch a {
+        touch-action: manipulation; 
+      }
+      
+      body:is(.touch, .embed) .app {
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      }
+      body:is(.touch, .embed) .window > .window-head {
+        display: none;
+      }
+      body:is(.touch, .embed) .window-body {
+        padding: 0;
+      }
+      
+      body.touch .stage.playing {
+        touch-action: none;
+      }
+      
+      body:is(.touch, .embed) .screen {
+        justify-content: flex-start;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 8px 0;
+      }
+      
+      body:is(.touch, .embed) #title,
+      body:is(.touch, .embed) #mp,
+      body:is(.touch, .embed) #lobby,
+      body:is(.touch, .embed) #loading {
+        padding-top: 76px;
+      }
+      body:is(.touch, .embed) .screen:not(.hidden) {
+        pointer-events: auto;
+      }
+      
+      body:not(.ios-safari) .ios-only {
+        display: none !important;
+      }
+      body:is(.touch, .embed) .screen > .sfwin,
+      body:is(.touch, .embed) .screen > .title-row {
+        flex-shrink: 0;
+        margin: auto 0;
+      }
+      body.touch .featured-card {
+        width: min(620px, calc(100% - 32px));
+      }
+      body:is(.touch, .embed) .sfwin-body {
+        gap: 10px;
+        padding: 12px;
+      }
+      body:is(.touch, .embed) .hero-title {
+        font-size: 30px;
+      }
+      
+      body:is(.touch, .embed) #hud .sfwin,
+      #hud.hidden * {
+        pointer-events: none !important;
+      }
+      
+      body:is(.touch, .embed) #hud-progress {
+        left: 8px;
+        top: 8px;
+        width: 150px;
+        gap: 6px;
+        padding: 3px 6px;
+        background: rgba(0, 0, 0, 0.35);
+        box-shadow: none;
+      }
+      body:is(.touch, .embed) #hud-progress p {
+        min-width: 0;
+        font-size: 13px;
+        line-height: 14px;
+      }
+      body:is(.touch, .embed) #hud-progress .meter {
+        flex: 1;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.15);
+      }
+      body:is(.touch, .embed) #hud-progress .meter,
+      body:is(.touch, .embed) #hud-progress .meter i,
+      body:is(.touch, .embed) #hud-progress .meter b {
+        height: 4px;
+      }
+      body:is(.touch, .embed) .hud-weapons {
+        bottom: 6px;
+        gap: 4px;
+        padding: 4px;
+        background: none; 
+        box-shadow: none;
+        pointer-events: auto;
+      }
+      body:is(.touch, .embed) .slot {
+        width: 50px; 
+        height: 34px;
+      }
+      body:is(.touch, .embed) .slot .key,
+      body:is(.touch, .embed) .slot.alt {
+        display: none;
+      }
+      
+      body:is(.touch, .embed) .wname {
+        bottom: 52px;
+        padding: 3px 6px;
+        font-size: 12px;
+      }
+      body:is(.touch, .embed) .hud-hint {
+        left: 50%;
+        top: 8px;
+        bottom: auto;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 440px);
+        font-size: 14px;
+      }
+      body:is(.touch, .embed) .hud-hint .sfwin-body {
+        padding: 6px 10px;
+      }
+      body:is(.touch, .embed) .vs-feed {
+        top: 40px;
+        right: 6px;
+      }
+      
+      body.touch.portrait .hud-weapons {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: max-content;
+        max-width: calc(100% - 120px);
+      }
+      body.touch.portrait .slot {
+        width: 48px;
+      }
+      body.touch.portrait .tstick {
+        top: calc(100% - 190px);
+      }
+      body.touch.portrait .hud-hint {
+        top: 40px;
+        max-width: calc(100% - 24px);
+      }
+      
+      .tstick {
+        position: absolute;
+        left: 84px;
+        top: calc(100% - 84px);
+        width: 104px;
+        height: 104px;
+        margin: -52px 0 0 -52px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.35);
+        background: rgba(0, 0, 0, 0.18);
+        opacity: 0.45;
+        pointer-events: none;
+      }
+      .tstick.on {
+        opacity: 1;
+      }
+      
+      .tstick.taim {
+        left: calc(100% - 84px);
+      }
+      body.touch:not(.portrait) .tstick.taim {
+        left: calc(100% - 124px); 
+      }
+      .tstick i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 44px;
+        height: 44px;
+        margin: -22px 0 0 -22px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.35);
+      }
+      
+      .tbtn {
+        position: absolute;
+        pointer-events: auto;
+        touch-action: none;
+      }
+      .tbtn-alt {
+        right: 10px;
+        bottom: 10px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .tbtn-alt canvas {
+        width: 32px;
+        height: 32px;
+        image-rendering: pixelated;
+      }
+      .tbtn-alt.dive canvas {
+        width: 16px;
+        height: 16px;
+      }
+      .tbtn-alt p {
+        display: none;
+        font-size: 12px;
+        line-height: 12px;
+      }
+      .tbtn-alt.dive p {
+        display: block;
+      }
+      .tbtn-pause {
+        right: 6px;
+        top: 6px;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        gap: 4px;
+      }
+      .tbtn-pause i {
+        width: 4px;
+        height: 10px;
+        background: var(--white);
+      }
+      
+      .rotate {
+        display: none;
+      }
+      body.touch.turn .rotate {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 24px;
+        text-align: center;
+        background: var(--black);
+      }
+      .rotate img {
+        image-rendering: pixelated;
+      }
+
+      
+      .badge-preview {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        background: #1e1e1e;
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .badge-preview.light {
+        background: #ededed;
+      }
+      .badge-preview img:not(.on) {
+        display: none;
+      }
+      #badge .seg {
+        margin-top: 0;
+      }
+      .badge-code {
+        margin: 0;
+        font: 14px/20px chevyray, ui-monospace, monospace;
+        color: #a0a0a0;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere; 
+        user-select: text;
+      }
+      .link-box {
+        flex: 1;
+        min-width: 0;
+        padding: 4px 8px 6px; 
+        background: var(--pure-black);
+        box-shadow: var(--shadow-input);
+        overflow: hidden;
+        user-select: text;
+      }
+      .link-box p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .players {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .pl {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        flex: none;
+        box-shadow: var(--shadow-input);
+      }
+      .pl .tag-me {
+        color: var(--light-gray);
+      }
+      
+      .vs-topbar {
+        display: contents;
+      }
+      .vs-top {
+        position: absolute;
+        left: 50%;
+        top: 12px;
+        transform: translateX(-50%);
+        font-size: 24px;
+        line-height: 1.2;
+        text-shadow: 0 2px 0 #000;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      
+      .vs-top .ch {
+        display: inline-block;
+        width: 0.556em;
+        text-align: center;
+      }
+      .vs-top .ch.colon {
+        width: 0.222em;
+      }
+      
+      .vs-life {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        width: 320px;
+        height: 20px;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-input);
+        pointer-events: none;
+      }
+      .vs-life i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: #e5383b;
+        transition: width 0.12s ease-out;
+      }
+      .vs-life.low i {
+        animation: life-low 0.8s ease-in-out infinite alternate;
+      }
+      @keyframes life-low {
+        to {
+          background: #ff8a8a;
+        }
+      }
+      #ui.versus .hud-hint {
+        bottom: 46px;
+      }
+      
+      body:is(.touch, .embed) .vs-topbar {
+        position: absolute;
+        left: 8px;
+        right: 44px;
+        top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        pointer-events: none;
+      }
+      body:is(.touch, .embed) .vs-top {
+        position: static;
+        transform: none;
+        flex: none;
+        font-size: 18px;
+      }
+      body:is(.touch, .embed) .vs-life {
+        position: relative; 
+        inset: auto; 
+        flex: 1;
+        align-self: center; 
+        min-width: 40px;
+        width: auto;
+        height: 8px;
+      }
+      body:is(.touch, .embed) #ui.versus .hud-hint {
+        top: 36px;
+        bottom: auto;
+      }
+      .vs-feed {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+      }
+      .vs-feed p {
+        padding: 4px 8px;
+        background: var(--black);
+        box-shadow: var(--shadow-input);
+        white-space: nowrap;
+      }
+      .vs-center {
+        position: absolute;
+        left: 50%;
+        top: 34%;
+        transform: translate(-50%, -50%);
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 32px;
+        text-shadow: 0 3px 0 #000;
+        white-space: nowrap;
+        transition: opacity 0.15s ease;
+      }
+      
+      .vs-center.respawn {
+        font-size: clamp(44px, 7vw, 72px);
+        text-shadow: 0 4px 0 #000;
+      }
+      
+      .vs-next {
+        position: absolute;
+        left: 50%;
+        top: max(16px, env(safe-area-inset-top));
+        transform: translateX(-50%);
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 32px;
+        line-height: 1.2;
+        text-shadow: 0 3px 0 #000;
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .vs-next:empty {
+        display: none;
+      }
+      
+      body:is(.touch, .embed) .vs-next {
+        position: static;
+        transform: none;
+        margin-bottom: 8px;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        text-shadow: 0 2px 0 #000;
+      }
+      .vs-board {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: min(440px, calc(100% - 32px));
+      }
+      .board {
+        display: grid;
+        grid-template-columns: auto auto 1fr auto auto;
+        gap: 6px 16px;
+        align-items: center;
+        color: #a0a0a0;
+      }
+      .board .n {
+        color: var(--white);
+      }
+      
+      
+      .maps {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+        gap: 6px;
+        width: 100%;
+      }
+      .map-tile {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 4px 4px 6px;
+        box-shadow: var(--shadow-input);
+        text-align: left;
+      }
+      .map-tile:hover,
+      .map-tile:focus-visible {
+        background: var(--medium-gray);
+        outline: none;
+      }
+      .map-tile img,
+      .map-tile .any {
+        width: 100%;
+        height: 60px;
+        object-fit: cover;
+        object-position: top;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .map-tile .any {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 39px;
+        line-height: 1;
+        padding: 10px 0 0 4px;
+        color: var(--orange);
+      }
+      .map-tile p {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .map-tile.random {
+        background: var(--medium-gray);
+      }
+      .map-tile.random:hover {
+        background: var(--light-gray);
+      }
+      body.touch .map-tile img,
+      body.touch .map-tile .any {
+        height: 64px;
+      }
+      
+      
+      .skins-shelf {
+        width: min(620px, calc(100% - 32px));
+      }
+      #title,
+      #mp {
+        justify-content: flex-start;
+        overflow-y: auto;
+        padding: 24px 0;
+      }
+      #mp > .title-card {
+        flex-shrink: 0;
+        margin: auto 0 16px;
+      }
+      #mp > .skins-shelf {
+        flex-shrink: 0;
+        margin: 0 0 auto;
+      }
+      
+      .skins-shelf > .sfwin-body.daily {
+        flex-direction: column; 
+        align-items: stretch;
+        gap: 8px;
+        padding-top: 0;
+      }
+      #daily[hidden] {
+        display: none;
+      }
+      .daily-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .daily-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      @container (max-width: 520px) {
+        .daily-list {
+          grid-template-columns: 1fr;
+        }
+      }
+      .daily-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-inner-pannel);
+      }
+      .daily-what {
+        font-size: 14px;
+        line-height: 16px;
+        min-height: 32px; 
+      }
+      .daily-bar {
+        height: 6px;
+      }
+      .daily-meta {
+        margin-top: auto; 
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 12px;
+        line-height: 14px;
+      }
+      .daily-xp {
+        color: var(--orange);
+        white-space: nowrap;
+      }
+      .daily-row.done .daily-what {
+        color: #a0a0a0;
+      }
+      
+      .pass-title {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .pass-bar i.pass-ghost {
+        background: var(--orange-light);
+        opacity: 0.4;
+      }
+      #title > .title-row {
+        flex-shrink: 0;
+        margin: auto 0 16px;
+      }
+      #title > .rank-card {
+        flex-shrink: 0;
+        margin: 0 0 auto;
+      }
+      
+      body.touch #title > .title-row {
+        order: 1;
+        margin: auto 0 16px;
+      }
+      body.touch #title > .rank-card {
+        order: 2;
+        margin: 0 0 auto;
+      }
+      body.touch #title > .home-legal {
+        order: 3;
+      }
+      
+      .skins-shelf {
+        container-type: inline-size;
+      }
+      .skins-shelf > .sfwin-body {
+        flex-direction: row;
+        align-items: center;
+      }
+      .skins-shelf-skins {
+        flex: none;
+      }
+      
+      .skins-shelf-skins,
+      .pack-promo-skins {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 88px);
+        gap: 6px;
+      }
+      .skins-shelf-skins .skin-tile,
+      .pack-promo-skins .skin-tile {
+        padding: 0;
+        min-width: 0;
+      }
+      .skins-shelf-skins .skin-tile canvas,
+      .pack-promo-skins .skin-tile canvas {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
+      
+      .skins-shelf-side {
+        flex: 1;
+        min-width: 0;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .skins-shelf-side .btn {
+        width: 100%;
+        max-width: none;
+        padding: 6px 12px;
+      }
+      @container (max-width: 560px) {
+        .skins-shelf > .sfwin-body {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .skins-shelf-skins {
+          justify-content: center;
+        }
+      }
+      #skins-shelf-sale[hidden],
+      #skins-pass[hidden] {
+        display: none;
+      }
+      
+      .skins-shelf > .skins-pass {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .pass-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr));
+        row-gap: 6px;
+        justify-items: center;
+        text-align: center;
+      }
+      .pass-grid > .skin-tile {
+        grid-row: 1;
+        width: min(88px, calc(100% - 8px));
+        padding: 0;
+      }
+      .pass-grid > .skin-tile canvas {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
+      .pass-name {
+        grid-row: 2;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .pass-bar {
+        grid-row: 3;
+        grid-column: 1 / -1;
+        align-self: center;
+        justify-self: stretch;
+        height: 10px;
+      }
+      .pass-node {
+        grid-row: 3;
+        z-index: 1;
+        background-color: var(--black);
+        box-shadow: var(--shadow-input);
+        filter: grayscale(1) brightness(0.55);
+      }
+      .pass-node.reached {
+        filter: none;
+      }
+      .pass-rank {
+        grid-row: 4;
+        padding: 0 4px;
+        font-size: 12px;
+        line-height: 14px;
+      }
+      .pass-act {
+        grid-row: 5;
+        width: 100%;
+        padding: 0 4px;
+      }
+      .pass-act .btn {
+        width: 100%;
+        max-width: none;
+        padding: 6px 8px;
+      }
+      .pass-line {
+        text-align: center;
+      }
+      
+      body.touch .pass-rank {
+        display: none;
+      }
+      .pass-line:empty {
+        display: none;
+      }
+      
+      .pack-promo-pass {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .pass-grid.lite > .skin-tile {
+        width: min(64px, calc(100% - 8px));
+      }
+      .pass-grid.lite > .pass-bar,
+      .pass-grid.lite > .pass-node {
+        grid-row: 2;
+      }
+      .pass-grid.lite > .pass-rank {
+        grid-row: 3;
+      }
+      .pass-line.lite {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      
+      .skin-tile.locked canvas {
+        filter: grayscale(0.85) brightness(0.55);
+      }
+      #skins-actions:empty {
+        display: none;
+      }
+      
+      #skins-actions .btn {
+        width: 160px;
+        max-width: 100%;
+        padding: 6px 12px;
+        white-space: nowrap;
+      }
+      
+      .text-link {
+        font-size: 14px;
+        line-height: 16px;
+        color: #a0a0a0;
+        text-align: left;
+      }
+      .text-link p {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .text-link:hover,
+      .text-link:focus-visible {
+        color: #ffffff;
+        outline: none;
+      }
+      
+      .window-head > .text-link {
+        margin-left: auto;
+      }
+      
+      #skins {
+        justify-content: center;
+        align-items: center;
+      }
+      #skins .title-card {
+        width: 380px;
+        max-width: calc(100vw - 32px);
+        min-width: 340px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        margin: auto;
+      }
+      .skins-top {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        height: 140px;
+        min-height: 140px;
+        box-sizing: border-box;
+      }
+      .skins-preview {
+        width: 140px;
+        height: 140px;
+        min-width: 140px;
+        min-height: 140px;
+        flex: 0 0 140px;
+        padding: 0;
+        background: var(--medium-gray);
+        image-rendering: pixelated;
+        box-sizing: border-box;
+      }
+      .skins-about {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        height: 140px;
+        box-sizing: border-box;
+      }
+      .skins-name {
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 22px;
+        line-height: 1.15;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .skins-about .muted {
+        font-size: 14px;
+        line-height: 1.2;
+        min-height: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .skins-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+      .skin-tile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 114px;
+        min-height: 114px;
+        padding: 0 0 6px;
+        background: var(--medium-gray);
+        box-shadow: var(--shadow-input);
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .skin-tile canvas {
+        display: block;
+        width: 80px;
+        height: 80px;
+        flex: 0 0 80px;
+        image-rendering: pixelated;
+      }
+      .skin-tile p {
+        font-size: 12px;
+        line-height: 13px;
+        text-align: center;
+        padding: 0 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 26px;
+        min-height: 26px;
+        overflow: hidden;
+        word-break: break-word;
+      }
+      button.skin-tile:hover,
+      button.skin-tile:focus-visible,
+      .skin-tile.on {
+        background: var(--light-gray);
+        outline: none;
+      }
+      
+      .skin-tile.worn {
+        box-shadow: -2px 0 0 0 var(--orange), 2px 0 0 0 var(--orange), 0 -2px 0 0 var(--orange), 0 2px 0 0 var(--orange);
+      }
+      .skin-tile.worn::after {
+        content: "EQUIPPED";
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 4px 1px 4px;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        line-height: 12px;
+        background: var(--orange);
+        color: var(--pure-black);
+        pointer-events: none;
+      }
+      
+      #party {
+        justify-content: center;
+      }
+      .party-card {
+        width: min(420px, calc(100% - 32px));
+      }
+      .party-body {
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
+      .party-when {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .party-count {
+        font-family: chevyray-oeuf, chevyray, monospace;
+        font-size: 64px;
+        line-height: 1;
+      }
+      .party-count:empty {
+        display: none;
+      }
+      .party-status {
+        color: #a0a0a0;
+      }
+      
+      .party-find {
+        position: relative;
+        width: 160px;
+        height: 8px;
+        overflow: hidden;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-input);
+      }
+      .party-find i {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0; 
+        width: 40px;
+        background: var(--orange);
+        animation: party-find 1.2s linear infinite;
+      }
+      @keyframes party-find {
+        from {
+          transform: translateX(-40px);
+        }
+        to {
+          transform: translateX(160px);
+        }
+      }
+      
+      .hidden .party-find i,
+      .party-find.hidden i {
+        animation: none;
+      }
+      
+      body.quick .tbtn-pause:not(.tbtn-leave),
+      body.quick .esc-key,
+      body:not(.quick) .tbtn-leave,
+      body:not(.quick) .esc-leave {
+        display: none !important;
+      }
+      .tbtn-leave img {
+        width: 12px;
+        height: 12px;
+      }
+      #leave-q {
+        justify-content: center;
+      }
+      .leave-card {
+        width: min(340px, calc(100% - 32px));
+      }
+      
+      .leave-body {
+        display: flex;
+        gap: 8px;
+      }
+      .leave-sound {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .leave-sound .sfx-vol {
+        flex: 1;
+        margin-top: 0;
+      }
+      .leave-body .btn {
+        flex: 1;
+      }
+      .leave-body #leave-no {
+        flex: 2;
+      }
+      
+      .lobby-waiting {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .lobby-waiting p {
+        color: #a0a0a0;
+      }
+      .lobby-waiting.hidden,
+      .lobby-alone.hidden {
+        display: none;
+      }
+      .party-online {
+        color: #a0a0a0;
+        font-size: 14px;
+      }
+      .party-online:empty {
+        display: none;
+      }
+      .party-who {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .party-n {
+        font-size: 22px;
+        line-height: 24px;
+      }
+      .party-players {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+      }
+      .party-players .chip {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 2px 8px 4px;
+        background: var(--pure-black);
+        box-shadow: var(--shadow-input);
+      }
+      
+      #hud.party-hidden {
+        opacity: 0;
+      }
+      #hud.party-hidden * {
+        pointer-events: none !important;
+      }
+      
+      @media (max-height: 520px) {
+        .party-card {
+          width: min(560px, calc(100% - 32px));
+        }
+        .party-body {
+          flex-direction: row;
+          justify-content: center;
+          gap: 24px;
+        }
+        .party-count {
+          font-size: 48px;
+        }
+      }
+      .board .v {
+        color: var(--white);
+        text-align: right;
+      }
+    </style>
+  <script type="module" crossorigin src="/_app/index-vvf5n08v.js?v=5"></script></head>
+  <body>
+        <script>
+      if (matchMedia("(pointer: coarse)").matches && navigator.maxTouchPoints > 0) document.body.classList.add("touch");
+      if (location.pathname === "/play") document.body.classList.add("embed"); // (the game in an X post: main.ts EMBED)
+      if (location.pathname === "/play" || location.pathname === "/x") document.body.classList.add("landing"); // (its first screen, from the first paint: #embed)
+    </script>
+    <p class="rotate-msg" id="rotate-msg" hidden></p>
+    <div hidden style="display:none;" aria-hidden="true"><button id="mp-open"></button><button id="btn-mp"></button><a id="btn-discord"></a><button id="btn-about"></button><button id="btn-join"></button></div>
+    <div class="app">
+      <div class="window">
+        <header class="window-head">
+          <div class="head-left">
+            <h1 class="head-title">
+              <a class="name" href="/">Boomfy</a>
+            </h1>
+          </div>
+          <div class="head-right">
+            <button class="btn" type="button" id="btn-share"><span><p>Share this map</p></span></button>
+          </div>
+        </header>
+        <div class="window-body">
+          <div class="stage" id="stage">
+            <canvas id="game"></canvas>
+                        <div id="title-video" class="title-video"><video muted loop playsinline preload="none" aria-hidden="true"></video></div>
+            <div id="ui">
+              <section id="title" class="screen">
+                <div class="title-row title-dashboard">
+                  <!-- LEFT PANEL: Target Arenas -->
+                  <div class="sfwin arenas-card">
+                    <div class="window-head">
+                      <p>🎯 Target Arenas</p>
+                    </div>
+                    <div class="sfwin-body">
+                      <div class="section-head">
+                        <p class="section-label">Popular Targets</p>
+                        <span class="quick-hint">Click to launch</span>
+                      </div>
+                      <div class="quick-maps-grid">
+                        <button type="button" class="quick-chip" data-url="en.wikipedia.org/wiki/Stick_figure"><span>Wikipedia</span></button>
+                        <button type="button" class="quick-chip" data-url="news.ycombinator.com"><span>Hacker News</span></button>
+                        <button type="button" class="quick-chip" data-url="github.com"><span>GitHub</span></button>
+                        <button type="button" class="quick-chip" data-url="reddit.com"><span>Reddit</span></button>
+                        <button type="button" class="quick-chip" data-url="destroy-arcade.pages.dev"><span>Retro Arcade</span></button>
+                        <button type="button" class="quick-chip" data-url="destroy-dino.pages.dev"><span>Dino Island</span></button>
+                      </div>
+                      <button class="btn btn-mode" type="button" id="btn-random-map" style="width: 100%; margin-top: 6px;"><span><p>🎲 Random Arena</p></span></button>
+                      <button class="btn btn-mode btn-open-skins" type="button" id="btn-skins" style="width: 100%; margin-top: 6px;"><span><p>🎭 Stickman Skins</p></span></button>
+                      <div class="arena-tip">
+                        <p class="muted">Live Web Physics • Real-time Level Generation</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CENTER PANEL: Main Launch Console -->
+                  <div class="sfwin title-card">
+                    <div class="window-head">
+                      <p>⚔️ Launch Console</p>
+                    </div>
+                    <div class="sfwin-body">
+                      <div class="brand-hero">
+                        <h1 class="hero-title boomfy-glow">Boomfy</h1>
+                        <p class="hero-subtitle">Enter any URL to vaporize into destructible pixels.</p>
+                      </div>
+                      <form id="urlform" class="url-row" autocomplete="off">
+                        <label class="input-wrap">
+                          <span class="proto">https://</span>
+                          <input id="url" name="url" spellcheck="false" value="en.wikipedia.org/wiki/Stick_figure" placeholder="wikipedia.org" aria-label="Website address" />
+                        </label>
+                        <button class="btn btn-destroy" type="submit"><span><p>Destroy</p></span></button>
+                      </form>
+                      <p class="err" id="err"></p>
+                      <div class="center-hints">
+                        <span class="hint-pill">Type any blog, article, wiki, or web app</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RIGHT PANEL: Tactical Controls & Arsenal -->
+                  <div class="sfwin controls-card">
+                    <div class="window-head">
+                      <p>⚡ Tactical Manual</p>
+                    </div>
+                    <div class="sfwin-body">
+                      <div class="section-head">
+                        <p class="section-label">Combat Controls</p>
+                      </div>
+                      <div class="controls-grid">
+                        <div class="ctrl-item"><div class="ctrl-keys"><kbd>A</kbd><kbd>D</kbd></div><span class="ctrl-desc">Move & Dash</span></div>
+                        <div class="ctrl-item"><div class="ctrl-keys"><img src="/_app/spaceBarIcon-3zzb4qy0.svg" alt="Space" /></div><span class="ctrl-desc">Jump / Jetpack</span></div>
+                        <div class="ctrl-item"><div class="ctrl-keys"><img src="/_app/mouseLeftIcon-47ae7rmd.svg" alt="Left click" /></div><span class="ctrl-desc">Shoot Weapon</span></div>
+                        <div class="ctrl-item"><div class="ctrl-keys"><img src="/_app/mouseRightIcon-spccm0mv.svg" alt="Right click" /></div><span class="ctrl-desc">HE Grenade</span></div>
+                        <div class="ctrl-item"><div class="ctrl-keys"><kbd>1-0</kbd></div><span class="ctrl-desc">10-Weapon Arsenal</span></div>
+                      </div>
+                      <div class="arsenal-badges">
+                        <span class="arsenal-badge">Magnum</span>
+                        <span class="arsenal-badge">SMG</span>
+                        <span class="arsenal-badge">Shotgun</span>
+                        <span class="arsenal-badge">RPG</span>
+                        <span class="arsenal-badge">Railgun</span>
+                        <span class="arsenal-badge">Flamer</span>
+                        <span class="arsenal-badge">Nuke</span>
+                        <span class="arsenal-badge">Drone</span>
+                        <span class="arsenal-badge">Singularity</span>
+                        <span class="arsenal-badge">Arcana</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hidden featured card for JS compatibility -->
+                  <div class="sfwin featured-card" id="featured" hidden>
+                    <div class="window-head"><p id="featured-title"></p></div>
+                    <div class="sfwin-body">
+                      <img class="featured-img" id="featured-img" alt="" />
+                      <p id="featured-line"></p>
+                      <button class="btn" type="button" id="featured-go"><span><p id="featured-go-label"></p></span></button>
+                      <p class="legal"><span id="featured-sponsored">Sponsored - </span><a id="featured-book" href="https://buy.stripe.com/4gM9AV5KD5B9c6I8GD1Fe09" target="_blank" rel="noopener noreferrer">Your site here</a></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- BOTTOM BAR: Rank & XP Progress (Full width) -->
+                <div class="sfwin rank-card">
+                  <div class="window-head">
+                    <p>🎖️ Combat Record & Pilot Rank</p>
+                  </div>
+                  <div class="sfwin-body">
+                    <i class="insignia" id="rank-card-insignia" aria-hidden="true"></i>
+                    <div class="rank-card-mid">
+                      <div class="rank-card-top">
+                        <p id="rank-card-name">Pilot</p>
+                        <p class="muted" id="rank-card-xp"></p>
+                        <button class="text-link" type="button" id="rank-card-signin" hidden><p>Sign in</p></button>
+                      </div>
+                      <div class="xp-bar"><i id="rank-card-fill"></i></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hidden keys-row fallback for touch/mobile logic if JS checks it -->
+                <div class="keys-row" style="display:none;" aria-hidden="true">
+                  <span class="kb-only"><kbd>A</kbd><kbd>D</kbd><p>run</p></span>
+                  <span class="kb-only"><img src="/_app/spaceBarIcon-3zzb4qy0.svg" alt="Space" /><p>jump / fly</p></span>
+                  <span class="kb-only"><img src="/_app/mouseLeftIcon-47ae7rmd.svg" alt="Left click" /><p>shoot</p></span>
+                  <span class="kb-only"><img src="/_app/mouseRightIcon-spccm0mv.svg" alt="Right click" /><p>grenade</p></span>
+                  <span class="kb-only"><kbd>1-0</kbd><p>weapons</p></span>
+                </div>
+
+                <p class="legal home-legal">Copyright 2026 Boomfy. All rights reserved.</p>
+              </section>
+
+              <section id="embed" class="screen hidden">
+                <div class="sfwin title-card">
+                  <div class="window-head"><p>Boomfy</p></div>
+                  <div class="sfwin-body">
+                    <h1 class="hero-title">Boomfy<br /><em>Online</em></h1>
+                    <form id="embed-form" class="url-row" autocomplete="off">
+                      <label class="input-wrap"><span class="proto label">Name</span><input id="embed-name" maxlength="16" spellcheck="false" aria-label="Your name" /></label>
+                      <button class="btn" type="submit"><span><p>Play online</p></span></button>
+                    </form>
+                  </div>
+                </div>
+              </section>
+              <section id="mobile" class="screen hidden">
+                <div class="sfwin title-card">
+                  <div class="window-head"><p>Boomfy</p></div>
+                  <div class="sfwin-body mobile-body">
+                    <img class="mobile-icon" src="/_app/monitorIcon-tkqvd2hx.svg" alt="" width="48" height="48" />
+                    <h1 class="hero-title">Boomfy</h1>
+                    <p class="muted">Make the window wider to play, or open it on a bigger screen!</p>
+                    <img class="mobile-hero" src="/_app/og-rz7phhgb.png" alt="The stickman shooting the title of Wikipedia's Stick figure article to pieces" width="1200" height="630" loading="lazy" />
+                    <button class="btn shine" type="button" id="mobile-copy"><span><p>Copy link for later</p></span></button>
+                    <p class="legal">Copyright 2026 Boomfy. All rights reserved.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section id="badge" class="screen hidden">
+                <div class="sfwin title-card">
+                  <div class="window-head">
+                    <p>Embed</p>
+                    <button type="button" id="badge-close" aria-label="Back"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body">
+                    <div class="seg" id="badge-seg">
+                      <button class="btn on" type="button" data-look="dark"><span><p>Dark</p></span></button>
+                      <button class="btn" type="button" data-look="light"><span><p>Light</p></span></button>
+                    </div>
+                    <pre id="badge-code" class="inner code-box"></pre>
+                    <button class="btn" type="button" id="badge-copy"><span><p>Copy code</p></span></button>
+                    <div id="badge-preview" class="badge-preview"></div>
+                  </div>
+                </div>
+              </section>
+
+                            <section id="skins" class="screen hidden">
+                <div class="sfwin title-card">
+                  <div class="window-head">
+                    <p>Skins</p>
+                    <button type="button" class="text-link" id="skins-restore" hidden><p>Restore purchase</p></button>
+                    <button type="button" id="skins-close" aria-label="Close"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body">
+                    <div class="skins-top">
+                      <canvas id="skins-preview" class="skins-preview inner"></canvas>
+                      <div class="skins-about">
+                        <p class="skins-name" id="skins-name"></p>
+                        <p class="muted" id="skins-note"></p>
+                        <div class="pick-row" id="skins-actions"></div>
+                      </div>
+                    </div>
+                    <div class="skins-grid" id="skins-grid"></div>
+                    <p class="err" id="skins-err"></p>
+                  </div>
+                </div>
+              </section>
+
+                            <section id="mp" class="screen hidden">
+                <div class="sfwin title-card">
+                  <div class="window-head">
+                    <p>Multiplayer</p>
+                    <button type="button" id="mp-close" aria-label="Back"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body">
+                    <div class="url-row">
+                      <label class="input-wrap"><span class="proto label">Name</span><input id="mp-name" maxlength="16" spellcheck="false" aria-label="Your name" /></label>
+                    </div>
+                    <div class="picks col">
+                      <p>Quick match</p>
+                      <div class="maps" id="mp-maps"></div>
+                    </div>
+                    <div class="picks col">
+                      <p>With friends</p>
+                      <div class="pick-row">
+                        <button class="btn" type="button" id="vs-create"><span><p>Invite friends</p></span></button>
+                        <form id="vs-joinform" class="code-row" autocomplete="off">
+                          <label class="input-wrap code"><input id="vs-code" maxlength="6" spellcheck="false" placeholder="Room code" aria-label="Room code" /></label>
+                          <button class="btn" type="submit"><span><p>Join</p></span></button>
+                        </form>
+                      </div>
+                    </div>
+                    <p class="err" id="mp-err"></p>
+                  </div>
+                </div>
+                                <div class="sfwin skins-shelf">
+                  <div class="window-head">
+                    <p id="skins-shelf-title">Progress</p>
+                    <button type="button" class="text-link" id="skins-shelf-restore" hidden><p>Restore purchase</p></button>
+                  </div>
+                                    <div class="sfwin-body" id="skins-shelf-sale" hidden>
+                    <div class="skins-shelf-skins" id="skins-shelf"></div>
+                    <div class="skins-shelf-side" id="skins-shelf-side"></div>
+                  </div>
+                                    <div class="sfwin-body skins-pass" id="skins-pass" hidden></div>
+                                    <div class="sfwin-body daily" id="daily" hidden>
+                    <div class="daily-head"><p class="muted">Daily challenges</p><p class="muted" id="daily-ends"></p></div>
+                    <div class="daily-list" id="daily-list"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="lobby" class="screen hidden">
+                <div class="sfwin title-card">
+                  <div class="window-head">
+                    <p>Multiplayer - <span id="lobby-code"></span></p>
+                    <button type="button" data-act="leave" aria-label="Leave the room"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body">
+                    <div class="url-row">
+                      <label class="input-wrap"><span class="proto label">Name</span><input id="lobby-name" maxlength="16" spellcheck="false" aria-label="Your name" /></label>
+                    </div>
+                    <div class="picks col">
+                      <p>Invite friends</p>
+                      <div class="url-row">
+                        <div class="link-box" aria-label="Invite link"><p id="lobby-link"></p></div>
+                        <button class="btn" type="button" id="lobby-copy"><span><p>Copy invite</p></span></button>
+                      </div>
+                                            <div class="lobby-waiting hidden" id="lobby-waiting"><div class="party-find"><i></i></div><p>Waiting for friends</p></div>
+                    </div>
+                    <div class="inner players" id="lobby-players"></div>
+                                        <div class="picks col lobby-alone hidden" id="lobby-alone">
+                      <p>Or play now</p>
+                      <div class="pick-row">
+                        <button class="btn" type="button" data-act="lobby-quick"><span><p>Play now</p></span></button>
+                        <p class="muted">with players online</p>
+                      </div>
+                    </div>
+                                        <div id="lobby-host" class="players">
+                      <div class="picks col">
+                        <p>Pick a map</p>
+                        <div class="maps" id="lobby-maps"></div>
+                      </div>
+                      <div class="picks col">
+                        <p>Or any website</p>
+                        <form id="lobby-form" class="url-row" autocomplete="off">
+                          <label class="input-wrap">
+                            <span class="proto">https://</span>
+                            <input id="lobby-url" spellcheck="false" placeholder="wikipedia.org" aria-label="Website to fight on" />
+                          </label>
+                          <button class="btn" type="submit"><span><p>Start</p></span></button>
+                        </form>
+                      </div>
+                    </div>
+                    <p class="muted" id="lobby-wait">Waiting for the host to pick a website or a map.</p>
+                    <p class="err" id="lobby-err"></p>
+                  </div>
+                </div>
+              </section>
+
+              <section id="loading" class="screen hidden">
+                <div class="sfwin load-card">
+                  <div class="window-head"><p id="load-host"></p></div>
+                  <div class="sfwin-body" style="gap: 8px">
+                    <div class="load-row"><p id="load-msg"></p><p id="load-pct" class="muted">0%</p></div>
+                    <div class="load-bar"><i id="load-fill"></i></div>
+                  </div>
+                </div>
+              </section>
+
+              <div id="hud" class="hidden">
+                                <div class="vs-topbar vs-only">
+                  <p class="vs-top" id="vs-top"><span id="vs-clock"></span><span id="vs-rest"></span></p>
+                  <div class="vs-life" id="vs-life" role="meter" aria-label="Health"><i id="vs-lifebar"></i></div>
+                </div>
+                <div class="vs-feed vs-only" id="vs-feed"></div>
+                <div class="vs-center vs-only" id="vs-center"></div>
+                <div class="sfwin vs-board vs-only hidden" id="vs-board">
+                  <div class="window-head"><p id="vs-board-title">Score</p></div>
+                  <div class="sfwin-body"><div class="board" id="vs-board-rows"></div></div>
+                </div>
+                <div class="hud-progress sp-only" id="hud-progress" aria-label="Destroyed">
+                  <div class="meter"><b id="hud-meter-ghost"></b><i id="hud-meter"></i></div>
+                  <p id="hud-pct">0%</p>
+                </div>
+                <div class="wname" id="wname"><p></p></div>
+                <div class="hud-weapons" id="hud-weapons"></div>
+                <div class="sfwin hud-hint" id="hud-hint">
+                  <div class="sfwin-body">
+                    <div class="keys-row kb-only">
+                      <span><kbd>A</kbd><kbd>D</kbd><p>run</p></span>
+                      <span><img src="/_app/spaceBarIcon-3zzb4qy0.svg" alt="Space" /><p>jump - tap to flip - hold to fly</p></span>
+                      <span><kbd>S</kbd><p>drop</p></span>
+                      <span><img src="/_app/mouseLeftIcon-47ae7rmd.svg" alt="Left click" /><p>shoot</p></span>
+                      <span><img src="/_app/mouseRightIcon-spccm0mv.svg" alt="Right click" /><p>grenade</p></span>
+                      <span><kbd>1-0</kbd><p>weapons</p></span>
+                      <span class="esc-key"><img src="/_app/escIcon-ep4tszws.svg" alt="Esc" /><p>pause</p></span>
+                      <span class="esc-leave"><img src="/_app/escIcon-ep4tszws.svg" alt="Esc" /><p>leave</p></span>
+                      <span class="vs-only"><kbd>Tab</kbd><p>score</p></span>
+                    </div>
+                    <div class="keys-row touch-only">
+                      <span><p>Left thumb, bottom left: run - push up to jump, hold to fly - down to drop</p></span>
+                      <span class="sp-only"><p>Touch the page: aim and shoot</p></span>
+                      <span class="vs-only"><p>Right thumb, bottom right: aim - push to shoot</p></span>
+                    </div>
+                  </div>
+                </div>
+                                <div class="tstick touch-only" id="tstick"><i id="tknob"></i></div>
+                <div class="tstick taim touch-only vs-only" id="taim"><i id="taimknob"></i></div>
+                <button class="btn tbtn tbtn-alt touch-only" type="button" id="tbtn-alt" data-tap aria-label="Grenade"><p>Dive</p></button>
+                <button class="btn tbtn tbtn-pause touch-only" type="button" id="tbtn-pause" data-tap aria-label="Pause"><i></i><i></i></button>
+                <button class="btn tbtn tbtn-pause tbtn-leave touch-only" type="button" id="tbtn-leave" data-tap aria-label="Leave the match"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+              </div>
+
+                                          <section id="party" class="screen hidden">
+                <div class="sfwin party-card" id="party-card" data-tap>
+                  <div class="window-head">
+                    <p id="party-title"></p>
+                    <button type="button" data-act="leave" aria-label="Leave"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body party-body">
+                    <div class="party-when">
+                      <div class="party-count" id="party-count"></div>
+                      <p class="party-status" id="party-status"></p>
+                      <div class="party-find hidden" id="party-find"><i></i></div>
+                      <p class="party-online" id="party-online"></p>
+                    </div>
+                    <div class="party-who">
+                      <p class="party-n" id="party-n"></p>
+                      <div class="party-players" id="party-players"></div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+                            <section id="leave-q" class="screen hidden">
+                <div class="sfwin leave-card" data-tap>
+                  <div class="window-head"><p>Leave this match?</p></div>
+                  <div class="sfwin-body">
+                    <div class="leave-body">
+                      <button class="btn" type="button" id="leave-yes"><span><p>Leave</p></span></button>
+                      <button class="btn" type="button" id="leave-no"><span><p>Keep playing</p></span></button>
+                    </div>
+                    <div class="leave-sound">
+                      <p class="gray">Sound</p>
+                      <input class="sfx-vol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Sound volume" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="pause" class="screen overlay hidden">
+                <div class="sfwin menu-card">
+                  <div class="window-head">
+                    <p>Paused - <span id="pause-site"></span></p>
+                    <button type="button" data-act="resume" aria-label="Resume"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body">
+                    <div class="row">
+                      <button class="btn" type="button" data-act="resume"><span><p>Resume</p></span></button>
+                      <button class="btn sp-only" type="button" data-act="restart"><span><p>Restart site</p></span></button>
+                      <button class="btn sp-only" type="button" data-act="new"><span><p>New website</p></span></button>
+                      <button class="btn vs-only" type="button" data-act="leave"><span><p>Leave room</p></span></button>
+                    </div>
+                    <p class="muted vs-only">The match goes on while this menu is open.</p>
+                    <div class="inner board vs-only" id="pause-board"></div>
+                    <div class="pack-promo" hidden>
+                      <p class="gray pack-promo-name">Boomfy Elite Outfits</p>
+                      <div class="inner pack-promo-body"><div class="pack-promo-skins"></div><div class="pack-promo-buy"></div></div>
+                    </div>
+                    <div>
+                      <p class="gray">Background Map</p>
+                      <div class="seg bg-seg"></div>
+                    </div>
+                    <div>
+                      <p class="gray">Sound</p>
+                      <input class="sfx-vol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Sound volume" />
+                    </div>
+                    <div class="inner keys kb-only">
+                      <p>A D / arrows</p><p>run</p>
+                      <p>Space / W</p><p>jump - tap again to flip - hold to fly</p>
+                      <p>S</p><p>drop through - hold to fall through</p>
+                      <p>Mouse</p><p>aim, click to shoot</p>
+                      <p>Right click</p><p>throw a grenade</p>
+                      <p>1-0 / wheel</p><p>switch weapon</p>
+                    </div>
+                    <div class="inner keys touch-only">
+                      <p>Left thumb, bottom left</p><p>run - push up to jump, again to flip, hold to fly - pull down to drop</p>
+                      <p>Touch the page</p><p>aim and shoot - hold to keep firing</p>
+                      <p>Grenade button</p><p>throw a grenade - dive-bomb with the drone</p>
+                      <p>Weapons</p><p>tap one to switch</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="complete" class="screen overlay hidden">
+                <div class="sfwin menu-card">
+                  <div class="window-head">
+                    <p>Website destroyed</p>
+                    <button type="button" data-act="keep" aria-label="Keep destroying"><img src="/_app/closeIcon-cwde2hjm.svg" alt="" /></button>
+                  </div>
+                  <div class="sfwin-body">
+                                        <div class="xp-strip">
+                      <div class="xp-track">
+                        <div class="xp-end">
+                          <i class="insignia xp-now" aria-hidden="true"></i>
+                          <p class="xp-now-name" aria-live="polite"></p>
+                        </div>
+                        <div class="xp-mid">
+                          <p class="xp-say"></p>
+                          <div class="xp-bar"><i class="xp-gain"></i><i class="xp-fill"></i></div>
+                          <p class="muted xp-count"></p>
+                        </div>
+                        <div class="xp-end xp-next-end">
+                          <i class="insignia xp-next" aria-hidden="true"></i>
+                          <p class="xp-next-name"></p>
+                        </div>
+                      </div>
+                      <p class="muted xp-note"></p>
+                    </div>
+                    <div class="inner stats" id="done-stats"></div>
+                    <div class="pack-promo" hidden>
+                      <p class="gray pack-promo-name">Boomfy Elite Outfits</p>
+                      <div class="inner pack-promo-body"><div class="pack-promo-skins"></div><div class="pack-promo-buy"></div></div>
+                    </div>
+                    <div class="row">
+                      <button class="btn" type="button" data-act="keep"><span><p>Keep destroying</p></span></button>
+                      <button class="btn" type="button" data-act="new"><span><p>Destroy another</p></span></button>
+                    </div>
+                    <div class="row"><button class="btn" type="button" data-act="online"><span><p>Play online</p></span></button></div>
+                                        <div class="pick-row install-row" hidden><button class="tag" type="button"><span>Install on your phone</span></button></div>
+                  </div>
+                </div>
+              </section>
+              <section id="vs-over" class="screen overlay hidden">
+                                <p class="vs-next" id="vs-next" aria-live="polite"></p>
+                <div class="sfwin menu-card">
+                  <div class="window-head"><p>Match over - <span id="vs-over-site"></span></p></div>
+                  <div class="sfwin-body">
+                    <div id="vs-winner"></div>
+                                        <div class="xp-strip">
+                      <div class="xp-track">
+                        <div class="xp-end">
+                          <i class="insignia xp-now" aria-hidden="true"></i>
+                          <p class="xp-now-name" aria-live="polite"></p>
+                        </div>
+                        <div class="xp-mid">
+                          <p class="xp-say"></p>
+                          <div class="xp-bar"><i class="xp-gain"></i><i class="xp-fill"></i></div>
+                          <p class="muted xp-count"></p>
+                        </div>
+                        <div class="xp-end xp-next-end">
+                          <i class="insignia xp-next" aria-hidden="true"></i>
+                          <p class="xp-next-name"></p>
+                        </div>
+                      </div>
+                      <p class="muted xp-note"></p>
+                    </div>
+                    <div class="inner board" id="vs-over-rows"></div>
+                    <div class="row" id="vs-over-host">
+                      <button class="btn" type="button" data-act="rematch"><span><p>Rematch</p></span></button>
+                      <button class="btn" type="button" data-act="vs-new"><span><p>New match</p></span></button>
+                    </div>
+                    <p class="muted" id="vs-over-wait">Waiting for the host to start the next match.</p>
+                    <div class="row" id="vs-over-room"><button class="btn" type="button" data-act="leave"><span><p>Leave room</p></span></button></div>
+                                        <div class="row" id="vs-over-pub">
+                      <button class="btn" type="button" data-act="again"><span><p>Play again</p></span></button>
+                      <button class="btn" type="button" data-act="leave"><span><p>Leave</p></span></button>
+                    </div>
+                                        <div class="pack-promo" hidden>
+                      <p class="gray pack-promo-name">Boomfy Elite Outfits</p>
+                      <div class="inner pack-promo-body"><div class="pack-promo-skins"></div><div class="pack-promo-buy"></div></div>
+                    </div>
+                    
+                                        <div class="pick-row install-row" hidden><button class="tag" type="button"><span>Install on your phone</span></button></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        function initMenuEnhancements() {
+          var urlInput = document.getElementById('url');
+          if (urlInput) {
+            var sanitizeUrl = function() {
+              urlInput.value = urlInput.value.replace(/^https?:\/\//i, '');
+            };
+            urlInput.addEventListener('input', sanitizeUrl);
+            urlInput.addEventListener('paste', function() {
+              setTimeout(sanitizeUrl, 10);
+            });
+            urlInput.addEventListener('blur', sanitizeUrl);
+          }
+
+          document.querySelectorAll('.quick-chip').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              var targetUrl = this.getAttribute('data-url');
+              var form = document.getElementById('urlform');
+              if (urlInput && form && targetUrl) {
+                urlInput.value = targetUrl.replace(/^https?:\/\//i, '');
+                if (typeof form.requestSubmit === 'function') {
+                  form.requestSubmit();
+                } else {
+                  var evt = new Event('submit', { bubbles: true, cancelable: true });
+                  form.dispatchEvent(evt);
+                }
+              }
+            });
+          });
+
+          var randBtn = document.getElementById('btn-random-map');
+          if (randBtn) {
+            randBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              var chips = document.querySelectorAll('.quick-chip');
+              if (chips.length > 0) {
+                var randomChip = chips[Math.floor(Math.random() * chips.length)];
+                randomChip.click();
+              }
+            });
+          }
+
+          document.querySelectorAll('.btn-open-skins').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              if (typeof window.openSkins === 'function') {
+                window.openSkins();
+              }
+            });
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initMenuEnhancements);
+        } else {
+          initMenuEnhancements();
+        }
+      })();
+    </script>
+  </body>
+</html>

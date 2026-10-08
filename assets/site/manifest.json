@@ -1,0 +1,18 @@
+{
+  "id": "/",
+  "name": "Boomfy",
+  "short_name": "Boomfy",
+  "description": "Type any website's address and fight your way through it.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0a0618",
+  "theme_color": "#140d2b",
+  "icons": [
+    { "src": "/assets/site/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/site/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/site/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/assets/site/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
