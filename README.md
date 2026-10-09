@@ -20,7 +20,7 @@
 
 > 💥 **Boomfy** & **Destroy Any Website Arcade Game**: Yerel Python web proxy motoru (`server.py`) ve donanım hızlandırmalı HTML5 Canvas 2D üzerinde çalışan; oyuncuların istedikleri herhangi bir web sitesini (Wikipedia, haber siteleri, bloglar vb.) anında kırılabilir fizik platformlarına dönüştürdüğü, jetpack ile uçup raylı tüfeklerden taktiksel nükleer füzelere uzanan cephanelikle savaştığı, sıfır dikişli 3 katmanlı paralaks arka planlara sahip **yeni nesil interaktif web imha ve stickman aksiyon oyunu**.
 
-[🚀 Hızlı Başlangıç](#-hızlı-başlangıç--kurulum) • [✨ Öne Çıkan Özellikler](#-öne-çıkan-özellikler) • [🏛️ Sistem Mimarisi](#-mimari--çalışma-prensibi) • [🔫 Silah Cephaneliği](#-silah-cephaneliği--hasar-tablosu) • [🥷 Karakterler & Kostümler](#-karakterler-sınıflar--görünümler) • [🌄 Paralaks Dünyaları](#-paralaks-dünyaları--katmanlar) • [🌐 Web Sitesi Yıkım Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi) • [🌍 English Overview](#-english-overview-boomfy-arcade-browser-destruction-engine) • [🔍 SEO İndeksi](#-arama-terimleri--keywords-index)
+[Hızlı Başlangıç](#-hızlı-başlangıç--kurulum) • [Öne Çıkan Özellikler](#-öne-çıkan-özellikler) • [Sistem Mimarisi](#-mimari--çalışma-prensibi) • [Silah Cephaneliği](#-silah-cephaneliği--hasar-tablosu) • [Karakterler & Kostümler](#-karakterler-sınıflar--görünümler) • [Paralaks Dünyaları](#-paralaks-dünyaları--katmanlar) • [Web Sitesi Yıkım Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi) • [English Overview](#-english-overview-boomfy-arcade-browser-destruction-engine) • [SEO İndeksi](#-arama-terimleri--keywords-index)
 
 ---
 
