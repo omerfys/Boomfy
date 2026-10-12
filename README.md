@@ -1,6 +1,6 @@
 <div align="center">
 
-# 💥 Boomfy — Arcade Browser Destruction & Stickman Physics Engine
+# Boomfy — Arcade Browser Destruction & Stickman Physics Engine
 
 <p align="center">
   <strong>İnternet sitelerini savaş alanına dönüştürün: Gerçek zamanlı parçalanma fiziği, efsanevi silah cephaneliği ve piksel paralaks dünyaları.</strong><br>
