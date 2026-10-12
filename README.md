@@ -7,40 +7,51 @@
   <em>Dilediğiniz web sitesinin URL'sini girin, sayfayı 2D platform haritasına çevirin ve stickman karakterinizle binaları, butonları ve başlıkları havaya uçurun!</em>
 </p>
 
-[![Boomfy - Arcade Destruction](https://img.shields.io/badge/Boomfy-Arcade%20Destruction-FF2A6D?style=for-the-badge&logo=gameandwatch&logoColor=white)](https://github.com/omerfys/Boomfy)
-[![Destroy Any Website Engine](https://img.shields.io/badge/Engine-Destroy%20Any%20Website-00F2FE?style=for-the-badge&logo=googlechrome&logoColor=black)](https://github.com/omerfys/Boomfy)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B%20Server-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![HTML5 Canvas 2D 60 FPS](https://img.shields.io/badge/HTML5-Canvas%202D%2060FPS-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-[![Parallax Worlds](https://img.shields.io/badge/Parallax-3%20Pixel%20Art%20Worlds-2ecc71?style=for-the-badge&logo=gamedeveloper&logoColor=white)](https://github.com/omerfys/Boomfy)
-[![Weapon Arsenal](https://img.shields.io/badge/Arsenal-10%20Epic%20Weapons-f39c12?style=for-the-badge&logo=target&logoColor=white)](https://github.com/omerfys/Boomfy)
-[![Stickman Skins](https://img.shields.io/badge/Skins-6%20Fighter%20Classes-9D4EDD?style=for-the-badge&logo=nintendogamecube&logoColor=white)](https://github.com/omerfys/Boomfy)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/omerfys/Boomfy?style=for-the-badge&color=2ecc71" alt="GitHub License"></a>
+  <a href="https://github.com/omerfys/Boomfy/stargazers"><img src="https://img.shields.io/github/stars/omerfys/Boomfy?style=for-the-badge&color=f39c12" alt="GitHub Stars"></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API"><img src="https://img.shields.io/badge/HTML5-Canvas%202D-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Canvas 2D"></a>
+  <img src="https://img.shields.io/badge/Performance-60%20FPS-3257FF?style=for-the-badge&logo=speedtest&logoColor=white" alt="60 FPS">
+  <img src="https://img.shields.io/badge/Dependency-Zero%20PIP-10B981?style=for-the-badge&logo=pypi&logoColor=white" alt="Zero PIP Dependency">
+  <img src="https://img.shields.io/badge/Parallax-Zero--Seam-9D4EDD?style=for-the-badge&logo=gamedeveloper&logoColor=white" alt="Zero-Seam Parallax">
+  <img src="https://img.shields.io/badge/Arsenal-10%20Weapons-FF2A6D?style=for-the-badge&logo=target&logoColor=white" alt="10 Weapons">
+</p>
 
-<br><br>
+<br>
 
-> 💥 **Boomfy** & **Destroy Any Website Arcade Game**: Yerel Python web proxy motoru (`server.py`) ve donanım hızlandırmalı HTML5 Canvas 2D üzerinde çalışan; oyuncuların istedikleri herhangi bir web sitesini (Wikipedia, haber siteleri, bloglar vb.) anında kırılabilir fizik platformlarına dönüştürdüğü, jetpack ile uçup raylı tüfeklerden taktiksel nükleer füzelere uzanan cephanelikle savaştığı, sıfır dikişli 3 katmanlı paralaks arka planlara sahip **yeni nesil interaktif web imha ve stickman aksiyon oyunu**.
+> 💥 **Boomfy**, yerel Python web proxy motoru (`server.py`) ve donanım hızlandırmalı HTML5 Canvas 2D üzerinde çalışan; oyuncuların istedikleri herhangi bir web sitesini (Wikipedia, haber siteleri, bloglar vb.) anında kırılabilir fizik platformlarına dönüştürdüğü, jetpack ile uçup raylı tüfeklerden taktiksel nükleer füzelere uzanan cephanelikle savaştığı, sıfır dikişli 3 katmanlı paralaks arka planlara sahip **yeni nesil interaktif web imha ve stickman aksiyon oyunu**.
 
-[Hızlı Başlangıç](#-hızlı-başlangıç--kurulum) • [Öne Çıkan Özellikler](#-öne-çıkan-özellikler) • [Sistem Mimarisi](#-mimari--çalışma-prensibi) • [Silah Cephaneliği](#-silah-cephaneliği--hasar-tablosu) • [Karakterler & Kostümler](#-karakterler-sınıflar--görünümler) • [Paralaks Dünyaları](#-paralaks-dünyaları--katmanlar) • [Web Sitesi Yıkım Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi) • [English Overview](#-english-overview-boomfy-arcade-browser-destruction-engine) • [SEO İndeksi](#-arama-terimleri--keywords-index)
+[Hızlı Başlangıç](#-hızlı-başlangıç--kurulum) • [Öne Çıkan Özellikler](#-öne-çıkan-özellikler) • [Web Sitesi Yıkım Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi) • [Silah Cephaneliği](#-silah-cephaneliği--hasar-tablosu) • [Savaş Haritaları](#-tematik-savaş-haritaları--yıkılabilir-arenalar) • [Paralaks Dünyaları](#-paralaks-dünyaları--katmanlar) • [English Overview](#-english-overview-boomfy-arcade-browser-destruction-engine)
+
+<br>
+
+<div align="center">
+  <img src="docs/assets/1-hero-combat-demo.gif?v=2" width="94%" alt="Boomfy Stickman Combat & Destruction Physics Demo" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+  <p align="center"><em>▲ Gerçek zamanlı stickman fizik çarpışması, kılıç dövüşleri, parçacık efektleri ve 60 FPS donanım hızlandırmalı arena aksiyonu</em></p>
+</div>
 
 ---
 
 </div>
 
-## 📑 İçindekiler
-- [Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
-- [Mimari & Çalışma Prensibi](#-mimari--çalışma-prensibi)
-- [Sistem Gereksinimleri](#-sistem-gereksinimleri)
-- [Hızlı Başlangıç & Kurulum](#-hızlı-başlangıç--kurulum)
-- [Herhangi Bir Web Sitesini Haritaya Dönüştürme Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi)
-- [Silah Cephaneliği & Hasar Tablosu](#-silah-cephaneliği--hasar-tablosu)
-- [Karakterler, Sınıflar & Görünümler](#-karakterler-sınıflar--görünümler)
-- [Paralaks Dünyaları & Katmanlar](#-paralaks-dünyaları--katmanlar)
-- [Oyun Kontrolleri & Tuş Kombinasyonları](#-oyun-kontrolleri--tuş-kombinasyonları)
-- [Yerel Sunucu Mimarisi & Hata Koruması](#-yerel-sunucu-mimarisi--hata-koruması)
-- [Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
-- [English Overview: Boomfy Arcade Browser Destruction Engine](#-english-overview-boomfy-arcade-browser-destruction-engine)
-- [Arama Terimleri / Keywords Index](#-arama-terimleri--keywords-index)
-- [Lisans & Yazar](#-lisans--yazar)
+## 📑 İçindekiler (Table of Contents)
+
+- [✨ Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
+- [🏛️ Mimari & Çalışma Prensibi](#-mimari--çalışma-prensibi)
+- [📋 Sistem Gereksinimleri](#-sistem-gereksinimleri)
+- [🚀 Hızlı Başlangıç & Kurulum](#-hızlı-başlangıç--kurulum)
+- [🌐 Herhangi Bir Web Sitesini Haritaya Dönüştürme Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi)
+- [🔫 Silah Cephaneliği & Hasar Tablosu](#-silah-cephaneliği--hasar-tablosu)
+- [🗺️ Tematik Savaş Haritaları & Yıkılabilir Arenalar](#-tematik-savaş-haritaları--yıkılabilir-arenalar)
+- [🥷 Karakterler, Sınıflar & Görünümler](#-karakterler-sınıflar--görünümler)
+- [🌄 Paralaks Dünyaları & Katmanlar](#-paralaks-dünyaları--katmanlar)
+- [⌨️ Oyun Kontrolleri & Tuş Kombinasyonları](#-oyun-kontrolleri--tuş-kombinasyonları)
+- [⚡ Yerel Sunucu Mimarisi & Hata Koruması](#-yerel-sunucu-mimarisi--hata-koruması)
+- [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
+- [🌍 English Overview: Boomfy Arcade Browser Destruction Engine](#-english-overview-boomfy-arcade-browser-destruction-engine)
+- [🔍 Arama Terimleri / Keywords Index](#-arama-terimleri--keywords-index)
+- [📜 Lisans & Yazar](#-lisans--yazar)
 
 ---
 
@@ -48,14 +59,14 @@
 
 - 🌐 **İnternet Sayfalarını Haritaya Dönüştürme (Destroy Any Website Proxy):** Dilediğiniz web sitesinin URL adresini arama çubuğuna yazın. Yerel proxy motoru sayfayı güvenlik kısıtlamalarından (CSP / X-Frame-Options) arındırır, DOM elementlerini ve metinleri gerçek zamanlı parçalanabilir 2D platform gliflerine dönüştürür.
 - 💥 **Gerçek Zamanlı Fiziksel İmha & Enkaz Simülasyonu:** Mermiler, roketler ve patlamalar web sayfalarındaki butonları, paragrafları ve resimleri fizik kurallarına uygun olarak yüzlerce bağımsız parçacığa böler.
-- 🚀 **Jetpack & Paraşüt Fiziği:** Yerçekimine meydan okuyun! `Space` tuşuna basılı tutarak jetpack ile gökyüzüne uçun, yüksekten düşerken paraşüt açarak yumuşak iniş yapın veya havada çift takla atın.
+- 🚀 **Jetpack & Paraşüt Fiziği:** Yerçekimine meydan okuyun! `Space` tuşuna basılı tutarak jetpack ile gökyüzüne uçun, yüksekten düşerken paraşüt açarak yumuşak iniş yapın veya havada ters takla atın.
 - 🔫 **10 Efsanevi Silah & İkincil Ekipmanlar:** Ağır tabancalardan sınırsız delen Hyperion Raylı Tüfeğe, düşmanı takip eden otonom dronlardan kara delik açan Singularity Çekirdeğine ve 12 parçaya bölünen Cluster Nükleer füzeye kadar zengin bir cephanelik.
 - 🥷 **6 Özel Stickman Savaşçı Sınıfı:** Classic Striker, Cyber Reaper, Inferno Oni, Astral Phantom, Blood Sovereign ve Solar Emperor; özel kafa zırhları, taçlar ve seviye rozetleri.
 - 🌄 **3 Katmanlı Kusursuz Paralaks Arka Planlar:**
   - 🌆 **Midnight City / Neo Cyber City:** Synthwave cyberpunk gökdelenler ve neon ışıklar.
   - 🌲 **Mystic Forest:** OpenGameArt CC0 lisanslı sisli yeşil sıradağlar, çam ormanı ve turkuaz gökyüzü (sıfır dikiş dikey çizgisiz döngü).
   - 🌙 **Moonlit Samurai:** Dolunay, Japon pagoda tapınakları ve kiraz çiçeği dağları.
-- ⚡ **HTTP 206 Streaming Destekli Dayanıklı Python Sunucusu (`server.py`):** Video/medya dosyalarını parça parça akıtan, Windows soket kopmalarını (`WinError 10053/10054`) sessizce yöneten ve çökmeyen yerel proxy motoru.
+- ⚡ **HTTP 206 Streaming Destekli Dayanıklı Python Sunucusu (`server.py`):** Medya dosyalarını parça parça akıtan, Windows soket kopmalarını (`WinError 10053/10054`) sessizce yöneten ve çökmeyen yerel proxy motoru.
 - 🎵 **Web Audio API Ses & Yankı Sistemi:** Silah geri tepmeleri, patlama basları, jetpack vızıltısı ve retro çip sesleri.
 - 🎮 **Çift Mod Kontrol:** Klavye + Fare masaüstü kontrollerinin yanı sıra dokunmatik ekranlar için sanal analog joystick desteği.
 
@@ -133,6 +144,11 @@ http://localhost:3001/
 
 Boomfy'nin en büyük gücü, internetteki her web sayfasını interaktif bir savaş platformuna çevirebilmesidir:
 
+<div align="center">
+  <img src="docs/assets/2-website-destruction-demo.gif?v=2" width="94%" alt="Boomfy Website Destruction & Glyph Physics Demo" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+  <p align="center"><em>▲ Dilediğiniz web sitesini (Wikipedia vb.) yerel proxy ile anında kırılabilir fizik platformlarına ve parçacık gliflerine dönüştürme</em></p>
+</div>
+
 1. Oyunu açtıktan sonra ana ekrandaki arama çubuğuna dilediğiniz sitenin adresini yazın:
    - Örnek: `en.wikipedia.org/wiki/Stick_figure`
    - Örnek: `news.ycombinator.com`
@@ -144,6 +160,11 @@ Boomfy'nin en büyük gücü, internetteki her web sayfasını interaktif bir sa
 ---
 
 ## 🔫 Silah Cephaneliği & Hasar Tablosu
+
+<div align="center">
+  <img src="docs/assets/5-weapons-arsenal-grid.png?v=2" width="94%" alt="Boomfy Weapons & Gear Arsenal Grid" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+  <p align="center"><em>▲ 10 Ana silah, taktiksel ikincil teçhizatlar (Jetpack, Paraşüt, HE Bombası) ve mermi balistiği cephaneliği</em></p>
+</div>
 
 Oyunda bulunan 10 ana silah ve ikincil taktiksel teçhizatların teknik parametreleri:
 
@@ -167,6 +188,22 @@ Oyunda bulunan 10 ana silah ve ikincil taktiksel teçhizatların teknik parametr
 
 ---
 
+## 🗺️ Tematik Savaş Haritaları & Yıkılabilir Arenalar
+
+Boomfy, harici web sitelerinin yanı sıra tamamen parçalanabilir bloklardan inşa edilmiş zengin tematik hazır haritalar sunar:
+
+<div align="center">
+  <img src="docs/assets/3-maps-and-arenas.png?v=2" width="94%" alt="Boomfy Destructible Map Arenas" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+  <p align="center"><em>▲ Kırılabilir bloklar ve metin platformlarıyla donatılmış hazır tematik savaş haritaları (Pirate Cove, Rooftops Battle, Toybox Chaos)</em></p>
+</div>
+
+- 🏴‍☠️ **Pirate Cove:** Ahşap korsan gemileri, yelken direkleri, hazine odaları ve dinamik patlama kuyuları.
+- 🏙️ **Rooftops Battle:** Yüksek gökdelenler, Eyfel kulesi iskeleti ve dar köprü geçitleri üzerinde hava muharebesi.
+- 🧸 **Toybox Chaos:** Zıplayan oyuncak bloklar, renkli harf kuleleri ve yüksek esnekliğe sahip çarpışma zeminleri.
+- 🏰 **Ruinhold:** Antik taş kalıntılar, yeraltı dehlizleri ve gizli geçitler.
+
+---
+
 ## 🥷 Karakterler, Sınıflar & Görünümler
 
 Oyuncular oyun içi seviyelerine ve tercihlerine göre 6 farklı stickman savaşçı görünümünü kuşanabilir:
@@ -185,6 +222,11 @@ Oyuncular oyun içi seviyelerine ve tercihlerine göre 6 farklı stickman savaş
 ## 🌄 Paralaks Dünyaları & Katmanlar
 
 Boomfy'deki tüm arka planlar, geniş monitörlerde ve harita kaydırmalarında dikey çizgi veya tekrar hissi oluşturmayan **matematiksel sıfır dikişli (`make_seamless_pure`)** katmanlardan oluşur:
+
+<div align="center">
+  <img src="docs/assets/4-parallax-worlds-demo.gif?v=2" width="94%" alt="Boomfy Zero-Seam Parallax Engine Demo" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+  <p align="center"><em>▲ Matematiksel sıfır dikişli (zero-seam) 3 katmanlı dinamik paralaks derinlik motoru</em></p>
+</div>
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -221,7 +263,7 @@ Boomfy'deki tüm arka planlar, geniş monitörlerde ve harita kaydırmalarında 
 
 ## ⚡ Yerel Sunucu Mimarisi & Hata Koruması
 
-Projenin kalbi olan [`server.py`](file:///c:/Users/omerfy/Desktop/Boomfy/server.py), sıradan bir HTTP sunucusundan çok daha fazlasıdır:
+Projenin kalbi olan [`server.py`](file:///D:/ProjectX/Boomfy/server.py), sıradan bir HTTP sunucusundan çok daha fazlasıdır:
 
 1. **İstemci Bağlantı İptali Koruması (`is_client_disconnect`):** Tarayıcı sayfayı yenilediğinde veya sekmeyi kapattığında oluşan Windows soket kesintilerini (`WinError 10053`, `WinError 10054`, `BrokenPipeError`) sessizce yakalar; konsolu kirlilikten ve çökmelerden korur.
 2. **HTTP 206 Partial Content (Streaming Media Desteği):** `assets/video/title.mp4` gibi büyük medya dosyalarını tek seferde yüklemek yerine 64 KB'lık parçalar halinde akıtarak tarayıcı bellek yükünü sıfıra indirir.
@@ -232,20 +274,28 @@ Projenin kalbi olan [`server.py`](file:///c:/Users/omerfy/Desktop/Boomfy/server.
 
 ## ❓ Sıkça Sorulan Sorular (FAQ)
 
-### S: Port 3001 meşgul hatası alırsam ne yapmalıyım?
-> **C:** Bilgisayarınızda arka planda açık kalmış eski bir sunucu süreci olabilir. Görev Yöneticisi'nden çalışan Python süreçlerini sonlandırabilir veya terminal üzerinden sunucuyu yeniden başlatabilirsiniz:
-> ```bash
-> python server.py
-> ```
+<details>
+<summary><strong>1. Port 3001 meşgul hatası alırsam ne yapmalıyım?</strong></summary>
+Bilgisayarınızda arka planda açık kalmış eski bir sunucu süreci olabilir. Görev Yöneticisi'nden çalışan Python süreçlerini sonlandırabilir veya terminal üzerinden sunucuyu yeniden başlatabilirsiniz:
+```bash
+python server.py
+```
+</details>
 
-### S: İstediğim her web sitesini haritaya çevirebilir miyim?
-> **C:** Evet! Statik veya dinamik neredeyse tüm halka açık web sitelerini (Wikipedia, haber portalları, dokümantasyon sayfaları vb.) yok edilebilir bir platforma dönüştürebilirsiniz. Bazı aşırı korumalı siteler için sayfa URL'sinin başına `https://` eklemeyi unutmayın.
+<details>
+<summary><strong>2. İstediğim her web sitesini haritaya çevirebilir miyim?</strong></summary>
+Evet! Statik veya dinamik neredeyse tüm halka açık web sitelerini (Wikipedia, haber portalları, dokümantasyon sayfaları vb.) yok edilebilir bir platforma dönüştürebilirsiniz. Bazı aşırı korumalı siteler için sayfa URL'sinin başına <code>https://</code> eklemeyi unutmayın.
+</details>
 
-### S: Arka planı oyun sırasında nasıl değiştirebilirim?
-> **C:** Oyun ekranındayken klavyenizden `ESC` tuşuna basın. Açılan menüden dilediğiniz arka planı (**Midnight City**, **Mystic Forest** veya **Moonlit Samurai**) tek tıkla seçebilirsiniz. Seçiminiz tarayıcı önbelleğinde saklanır.
+<details>
+<summary><strong>3. Arka planı oyun sırasında nasıl değiştirebilirim?</strong></summary>
+Oyun ekranındayken klavyenizden <code>ESC</code> tuşuna basın. Açılan menüden dilediğiniz arka planı (<strong>Midnight City</strong>, <strong>Mystic Forest</strong> veya <strong>Moonlit Samurai</strong>) tek tıkla seçebilirsiniz. Seçiminiz tarayıcı önbelleğinde saklanır.
+</details>
 
-### S: Oyunu harici paket yüklemeden çalıştırabilir miyim?
-> **C:** Kesinlikle evet! Projede `npm`, `pip` veya herhangi bir üçüncü parti kütüphane bağımlılığı yoktur. Yalnızca standart Python kurulumu ve modern bir web tarayıcısı yeterlidir.
+<details>
+<summary><strong>4. Oyunu harici paket yüklemeden çalıştırabilir miyim?</strong></summary>
+Kesinlikle evet! Projede <code>npm</code>, <code>pip</code> veya herhangi bir üçüncü parti kütüphane bağımlılığı yoktur. Yalnızca standart Python kurulumu ve modern bir web tarayıcısı yeterlidir.
+</details>
 
 ---
 
@@ -268,22 +318,7 @@ Projenin kalbi olan [`server.py`](file:///c:/Users/omerfy/Desktop/Boomfy/server.
 
 Bu repo aşağıdaki arama terimleri ve anahtar kelimeler için optimize edilmiştir:
 
-- `boomfy`
-- `destroy any website game`
-- `internet sitelerini yok etme oyunu`
-- `web page destruction game`
-- `stickman shooter browser game`
-- `html5 canvas 2d physics`
-- `web proxy arcade platformer`
-- `interactive web page destroyer`
-- `canvas destruction engine`
-- `parallax pixel art backgrounds`
-- `mystic forest parallax`
-- `hyperion railgun game`
-- `python browser game proxy`
-- `zero dependency browser game`
-- `creative coding game engine`
-- `omerfy boomfy`
+`boomfy` • `destroy any website game` • `internet sitelerini yok etme oyunu` • `web page destruction game` • `stickman shooter browser game` • `html5 canvas 2d physics` • `web proxy arcade platformer` • `interactive web page destroyer` • `canvas destruction engine` • `parallax pixel art backgrounds` • `mystic forest parallax` • `hyperion railgun game` • `python browser game proxy` • `zero dependency browser game` • `creative coding game engine` • `omerfy boomfy`
 
 ---
 
@@ -291,8 +326,7 @@ Bu repo aşağıdaki arama terimleri ve anahtar kelimeler için optimize edilmi�
 
 Bu proje **MIT Lisansı** altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına göz atabilirsiniz.
 
-<br>
+Geliştirici: **[@omerfys](https://github.com/omerfys)**  
+GitHub Deposu: [https://github.com/omerfys/Boomfy](https://github.com/omerfys/Boomfy)
 
-<div align="center">
-  <sub>Geliştirici: <b><a href="https://github.com/omerfys">omerfy</a></b> • Web Oyunları ve Yaratıcı Kodlama Topluluğu İçin Sevgiyle Geliştirildi 💥</sub>
-</div>
+⭐ **Projeyi beğendiyseniz GitHub üzerinden yıldız vermeyi unutmayın!**
