@@ -20,7 +20,7 @@
 
 <br>
 
-> 💥 **Boomfy**, yerel Python web proxy motoru (`server.py`) ve donanım hızlandırmalı HTML5 Canvas 2D üzerinde çalışan; oyuncuların istedikleri herhangi bir web sitesini (Wikipedia, haber siteleri, bloglar vb.) anında kırılabilir fizik platformlarına dönüştürdüğü, jetpack ile uçup raylı tüfeklerden taktiksel nükleer füzelere uzanan cephanelikle savaştığı, sıfır dikişli 3 katmanlı paralaks arka planlara sahip **yeni nesil interaktif web imha ve stickman aksiyon oyunu**.
+> **Boomfy**, yerel Python web proxy motoru (`server.py`) ve donanım hızlandırmalı HTML5 Canvas 2D üzerinde çalışan; oyuncuların istedikleri herhangi bir web sitesini (Wikipedia, haber siteleri, bloglar vb.) anında kırılabilir fizik platformlarına dönüştürdüğü, jetpack ile uçup raylı tüfeklerden taktiksel nükleer füzelere uzanan cephanelikle savaştığı, sıfır dikişli 3 katmanlı paralaks arka planlara sahip **yeni nesil interaktif web imha ve stickman aksiyon oyunu**.
 
 [Hızlı Başlangıç](#-hızlı-başlangıç--kurulum) • [Öne Çıkan Özellikler](#-öne-çıkan-özellikler) • [Web Sitesi Yıkım Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi) • [Silah Cephaneliği](#-silah-cephaneliği--hasar-tablosu) • [Savaş Haritaları](#-tematik-savaş-haritaları--yıkılabilir-arenalar) • [Paralaks Dünyaları](#-paralaks-dünyaları--katmanlar) • [English Overview](#-english-overview-boomfy-arcade-browser-destruction-engine)
 
