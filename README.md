@@ -37,38 +37,38 @@
 
 ## 📑 İçindekiler (Table of Contents)
 
-- [✨ Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
-- [🏛️ Mimari & Çalışma Prensibi](#-mimari--çalışma-prensibi)
-- [📋 Sistem Gereksinimleri](#-sistem-gereksinimleri)
-- [🚀 Hızlı Başlangıç & Kurulum](#-hızlı-başlangıç--kurulum)
-- [🌐 Herhangi Bir Web Sitesini Haritaya Dönüştürme Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi)
-- [🔫 Silah Cephaneliği & Hasar Tablosu](#-silah-cephaneliği--hasar-tablosu)
-- [🗺️ Tematik Savaş Haritaları & Yıkılabilir Arenalar](#-tematik-savaş-haritaları--yıkılabilir-arenalar)
-- [🥷 Karakterler, Sınıflar & Görünümler](#-karakterler-sınıflar--görünümler)
-- [🌄 Paralaks Dünyaları & Katmanlar](#-paralaks-dünyaları--katmanlar)
-- [⌨️ Oyun Kontrolleri & Tuş Kombinasyonları](#-oyun-kontrolleri--tuş-kombinasyonları)
-- [⚡ Yerel Sunucu Mimarisi & Hata Koruması](#-yerel-sunucu-mimarisi--hata-koruması)
-- [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
-- [🌍 English Overview: Boomfy Arcade Browser Destruction Engine](#-english-overview-boomfy-arcade-browser-destruction-engine)
-- [🔍 Arama Terimleri / Keywords Index](#-arama-terimleri--keywords-index)
-- [📜 Lisans & Yazar](#-lisans--yazar)
+- [Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
+- [Mimari & Çalışma Prensibi](#-mimari--çalışma-prensibi)
+- [Sistem Gereksinimleri](#-sistem-gereksinimleri)
+- [Hızlı Başlangıç & Kurulum](#-hızlı-başlangıç--kurulum)
+- [Herhangi Bir Web Sitesini Haritaya Dönüştürme Rehberi](#-herhangi-bir-web-sitesini-haritaya-dönüştürme-rehberi)
+- [Silah Cephaneliği & Hasar Tablosu](#-silah-cephaneliği--hasar-tablosu)
+- [Tematik Savaş Haritaları & Yıkılabilir Arenalar](#-tematik-savaş-haritaları--yıkılabilir-arenalar)
+- [Karakterler, Sınıflar & Görünümler](#-karakterler-sınıflar--görünümler)
+- [Paralaks Dünyaları & Katmanlar](#-paralaks-dünyaları--katmanlar)
+- [Oyun Kontrolleri & Tuş Kombinasyonları](#-oyun-kontrolleri--tuş-kombinasyonları)
+- [Yerel Sunucu Mimarisi & Hata Koruması](#-yerel-sunucu-mimarisi--hata-koruması)
+- [Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
+- [English Overview: Boomfy Arcade Browser Destruction Engine](#-english-overview-boomfy-arcade-browser-destruction-engine)
+- [Arama Terimleri / Keywords Index](#-arama-terimleri--keywords-index)
+- [Lisans & Yazar](#-lisans--yazar)
 
 ---
 
 ## ✨ Öne Çıkan Özellikler
 
-- 🌐 **İnternet Sayfalarını Haritaya Dönüştürme (Destroy Any Website Proxy):** Dilediğiniz web sitesinin URL adresini arama çubuğuna yazın. Yerel proxy motoru sayfayı güvenlik kısıtlamalarından (CSP / X-Frame-Options) arındırır, DOM elementlerini ve metinleri gerçek zamanlı parçalanabilir 2D platform gliflerine dönüştürür.
-- 💥 **Gerçek Zamanlı Fiziksel İmha & Enkaz Simülasyonu:** Mermiler, roketler ve patlamalar web sayfalarındaki butonları, paragrafları ve resimleri fizik kurallarına uygun olarak yüzlerce bağımsız parçacığa böler.
-- 🚀 **Jetpack & Paraşüt Fiziği:** Yerçekimine meydan okuyun! `Space` tuşuna basılı tutarak jetpack ile gökyüzüne uçun, yüksekten düşerken paraşüt açarak yumuşak iniş yapın veya havada ters takla atın.
-- 🔫 **10 Efsanevi Silah & İkincil Ekipmanlar:** Ağır tabancalardan sınırsız delen Hyperion Raylı Tüfeğe, düşmanı takip eden otonom dronlardan kara delik açan Singularity Çekirdeğine ve 12 parçaya bölünen Cluster Nükleer füzeye kadar zengin bir cephanelik.
-- 🥷 **6 Özel Stickman Savaşçı Sınıfı:** Classic Striker, Cyber Reaper, Inferno Oni, Astral Phantom, Blood Sovereign ve Solar Emperor; özel kafa zırhları, taçlar ve seviye rozetleri.
-- 🌄 **3 Katmanlı Kusursuz Paralaks Arka Planlar:**
-  - 🌆 **Midnight City / Neo Cyber City:** Synthwave cyberpunk gökdelenler ve neon ışıklar.
-  - 🌲 **Mystic Forest:** OpenGameArt CC0 lisanslı sisli yeşil sıradağlar, çam ormanı ve turkuaz gökyüzü (sıfır dikiş dikey çizgisiz döngü).
-  - 🌙 **Moonlit Samurai:** Dolunay, Japon pagoda tapınakları ve kiraz çiçeği dağları.
-- ⚡ **HTTP 206 Streaming Destekli Dayanıklı Python Sunucusu (`server.py`):** Medya dosyalarını parça parça akıtan, Windows soket kopmalarını (`WinError 10053/10054`) sessizce yöneten ve çökmeyen yerel proxy motoru.
-- 🎵 **Web Audio API Ses & Yankı Sistemi:** Silah geri tepmeleri, patlama basları, jetpack vızıltısı ve retro çip sesleri.
-- 🎮 **Çift Mod Kontrol:** Klavye + Fare masaüstü kontrollerinin yanı sıra dokunmatik ekranlar için sanal analog joystick desteği.
+- **İnternet Sayfalarını Haritaya Dönüştürme (Destroy Any Website Proxy):** Dilediğiniz web sitesinin URL adresini arama çubuğuna yazın. Yerel proxy motoru sayfayı güvenlik kısıtlamalarından (CSP / X-Frame-Options) arındırır, DOM elementlerini ve metinleri gerçek zamanlı parçalanabilir 2D platform gliflerine dönüştürür.
+- **Gerçek Zamanlı Fiziksel İmha & Enkaz Simülasyonu:** Mermiler, roketler ve patlamalar web sayfalarındaki butonları, paragrafları ve resimleri fizik kurallarına uygun olarak yüzlerce bağımsız parçacığa böler.
+- **Jetpack & Paraşüt Fiziği:** Yerçekimine meydan okuyun! `Space` tuşuna basılı tutarak jetpack ile gökyüzüne uçun, yüksekten düşerken paraşüt açarak yumuşak iniş yapın veya havada ters takla atın.
+- **10 Efsanevi Silah & İkincil Ekipmanlar:** Ağır tabancalardan sınırsız delen Hyperion Raylı Tüfeğe, düşmanı takip eden otonom dronlardan kara delik açan Singularity Çekirdeğine ve 12 parçaya bölünen Cluster Nükleer füzeye kadar zengin bir cephanelik.
+- **6 Özel Stickman Savaşçı Sınıfı:** Classic Striker, Cyber Reaper, Inferno Oni, Astral Phantom, Blood Sovereign ve Solar Emperor; özel kafa zırhları, taçlar ve seviye rozetleri.
+- **3 Katmanlı Kusursuz Paralaks Arka Planlar:**
+  - **Midnight City / Neo Cyber City:** Synthwave cyberpunk gökdelenler ve neon ışıklar.
+  - **Mystic Forest:** OpenGameArt CC0 lisanslı sisli yeşil sıradağlar, çam ormanı ve turkuaz gökyüzü (sıfır dikiş dikey çizgisiz döngü).
+  - **Moonlit Samurai:** Dolunay, Japon pagoda tapınakları ve kiraz çiçeği dağları.
+- **HTTP 206 Streaming Destekli Dayanıklı Python Sunucusu (`server.py`):** Medya dosyalarını parça parça akıtan, Windows soket kopmalarını (`WinError 10053/10054`) sessizce yöneten ve çökmeyen yerel proxy motoru.
+- **Web Audio API Ses & Yankı Sistemi:** Silah geri tepmeleri, patlama basları, jetpack vızıltısı ve retro çip sesleri.
+- **Çift Mod Kontrol:** Klavye + Fare masaüstü kontrollerinin yanı sıra dokunmatik ekranlar için sanal analog joystick desteği.
 
 ---
 
@@ -197,10 +197,10 @@ Boomfy, harici web sitelerinin yanı sıra tamamen parçalanabilir bloklardan in
   <p align="center"><em>▲ Kırılabilir bloklar ve metin platformlarıyla donatılmış hazır tematik savaş haritaları (Pirate Cove, Rooftops Battle, Toybox Chaos)</em></p>
 </div>
 
-- 🏴‍☠️ **Pirate Cove:** Ahşap korsan gemileri, yelken direkleri, hazine odaları ve dinamik patlama kuyuları.
-- 🏙️ **Rooftops Battle:** Yüksek gökdelenler, Eyfel kulesi iskeleti ve dar köprü geçitleri üzerinde hava muharebesi.
-- 🧸 **Toybox Chaos:** Zıplayan oyuncak bloklar, renkli harf kuleleri ve yüksek esnekliğe sahip çarpışma zeminleri.
-- 🏰 **Ruinhold:** Antik taş kalıntılar, yeraltı dehlizleri ve gizli geçitler.
+- **Pirate Cove:** Ahşap korsan gemileri, yelken direkleri, hazine odaları ve dinamik patlama kuyuları.
+- **Rooftops Battle:** Yüksek gökdelenler, Eyfel kulesi iskeleti ve dar köprü geçitleri üzerinde hava muharebesi.
+- **Toybox Chaos:** Zıplayan oyuncak bloklar, renkli harf kuleleri ve yüksek esnekliğe sahip çarpışma zeminleri.
+- **Ruinhold:** Antik taş kalıntılar, yeraltı dehlizleri ve gizli geçitler.
 
 ---
 
@@ -240,7 +240,7 @@ Boomfy'deki tüm arka planlar, geniş monitörlerde ve harita kaydırmalarında 
 └───────────────────┴──────────────┴───────────────┴─────────────────────┘
 ```
 
-- **🌲 Mystic Forest (En Yeni Dünya):** OpenGameArt CC0 lisanslı orijinal piksel sanatından üretilmiştir. Gökyüzü ve güneş katmanı en uzakta yavaşça kayarken (`0.01`), üç kademeli yeşil dağ silsilesi orta planda süzülür (`0.04`), çam ağaçları ve zemin kayalıkları ise kameraya en yakın planda (`0.09`) derinlik hissi yaratır.
+- **Mystic Forest (En Yeni Dünya):** OpenGameArt CC0 lisanslı orijinal piksel sanatından üretilmiştir. Gökyüzü ve güneş katmanı en uzakta yavaşça kayarken (`0.01`), üç kademeli yeşil dağ silsilesi orta planda süzülür (`0.04`), çam ağaçları ve zemin kayalıkları ise kameraya en yakın planda (`0.09`) derinlik hissi yaratır.
 - **Sıfır Dikiş Garantisi:** Sağ ve sol kenarlar arasındaki kosinüs harmanlaması sayesinde ekran ne kadar geniş olursa olsun hiçbir dikey çizgi veya yapay tekrar görünmez.
 
 ---
@@ -304,13 +304,13 @@ Kesinlikle evet! Projede <code>npm</code>, <code>pip</code> veya herhangi bir ü
 **Boomfy** is an exhilarating, zero-dependency browser-based arcade destruction platformer powered by a local Python proxy server (`server.py`) and hardware-accelerated HTML5 Canvas 2D. Enter any website URL to instantly transform live web pages into fully destructible 2D battle arenas!
 
 ### Key Highlights:
-- 🌐 **Destroy Any Website Proxy:** Strips CSP restrictions and converts real-time DOM elements, headers, and images into destructible terrain glyphs.
-- 💥 **Dynamic Debris & Disintegration Physics:** High-impact weapon projectiles tear apart website elements into hundreds of interactive physics particles.
-- 🔫 **10 Devastating Weapons:** From the infinite-piercing *Hyperion Railgun* (190 DMG) to the screen-clearing *Cluster MIRV Nuke* and *Singularity Core*.
-- 🥷 **6 Unique Stickman Classes:** Customizable fighter skins featuring *Cyber Reaper*, *Inferno Oni*, *Astral Phantom*, *Blood Sovereign*, and *Solar Emperor*.
-- 🌄 **3 Zero-Seam Parallax Worlds:** Mathematical zero-boundary wrapping across *Midnight City*, *Mystic Forest*, and *Moonlit Samurai*.
-- ⚡ **Resilient Python Server:** Built-in HTTP 206 Partial Content media streaming and WinError 10053/10054 client disconnect resilience.
-- 🎮 **Universal Controls:** Seamless keyboard/mouse aiming alongside virtual touch dual-joystick controls for mobile.
+- **Destroy Any Website Proxy:** Strips CSP restrictions and converts real-time DOM elements, headers, and images into destructible terrain glyphs.
+- **Dynamic Debris & Disintegration Physics:** High-impact weapon projectiles tear apart website elements into hundreds of interactive physics particles.
+- **10 Devastating Weapons:** From the infinite-piercing *Hyperion Railgun* (190 DMG) to the screen-clearing *Cluster MIRV Nuke* and *Singularity Core*.
+- **6 Unique Stickman Classes:** Customizable fighter skins featuring *Cyber Reaper*, *Inferno Oni*, *Astral Phantom*, *Blood Sovereign*, and *Solar Emperor*.
+- **3 Zero-Seam Parallax Worlds:** Mathematical zero-boundary wrapping across *Midnight City*, *Mystic Forest*, and *Moonlit Samurai*.
+- **Resilient Python Server:** Built-in HTTP 206 Partial Content media streaming and WinError 10053/10054 client disconnect resilience.
+- **Universal Controls:** Seamless keyboard/mouse aiming alongside virtual touch dual-joystick controls for mobile.
 
 ---
 
